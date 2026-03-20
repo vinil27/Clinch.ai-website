@@ -1,0 +1,1139 @@
+/* =============================================
+   Section 4 — "How It Works" (AI Workforce)
+   2×3 Floating Feature Card Grid
+   ============================================= */
+
+/* --- Section Container --- */
+.hiw-section {
+    position: relative;
+    padding: 7rem 2rem 8rem 2rem;
+    background-color: var(--bg-warm-cream);
+    background-image:
+        radial-gradient(ellipse 700px 550px at 15% 30%, rgba(85, 107, 47, 0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 600px 500px at 85% 65%, rgba(211, 84, 0, 0.04) 0%, transparent 65%),
+        radial-gradient(ellipse 500px 400px at 50% 90%, rgba(85, 107, 47, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse 400px 350px at 50% 10%, rgba(211, 84, 0, 0.025) 0%, transparent 60%);
+    overflow: hidden;
+}
+
+/* Ambient light overlays */
+.hiw-section::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hiw-section::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -8%;
+    width: 45%;
+    height: 45%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Section Header --- */
+.hiw-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hiw-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-deep-espresso);
+    margin: 0 0 0.75rem 0;
+    opacity: 0.7;
+}
+
+.hiw-headline {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-deep-espresso);
+    margin: 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- 2×3 Card Grid --- */
+.hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1260px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Individual Feature Card --- */
+.hiw-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow:
+        0 25px 60px rgba(62, 39, 35, 0.08),
+        0 8px 20px rgba(62, 39, 35, 0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: hiwFloat 7s ease-in-out infinite;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.hiw-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.hiw-card:nth-child(3) {
+    animation-delay: 1.0s;
+}
+
+.hiw-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.hiw-card:nth-child(5) {
+    animation-delay: 2.0s;
+}
+
+.hiw-card:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
+.hiw-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+        0 40px 80px rgba(62, 39, 35, 0.12),
+        0 14px 30px rgba(62, 39, 35, 0.06);
+}
+
+/* --- Card Text Area --- */
+.hiw-card-text {
+    padding: 2rem 2rem 1.25rem 2rem;
+}
+
+.hiw-card-text h3 {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-deep-espresso);
+    margin: 0 0 0.75rem 0;
+}
+
+.hiw-card-text p {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    margin: 0;
+}
+
+/* --- Card Mockup Area (shared) --- */
+.hiw-card-mockup {
+    flex: 1;
+    position: relative;
+    min-height: 280px;
+    padding: 1rem 1.25rem 1.25rem 1.25rem;
+    overflow: hidden;
+}
+
+/* Frosted glass container inside mockups */
+.mockup-glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(62, 39, 35, 0.06);
+}
+
+/* =============================================
+   CARD 1 — THE SCOUT (AI Search)
+   ============================================= */
+.scout-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+}
+
+.scout-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(62, 39, 35, 0.08);
+    border-radius: 12px;
+    animation: hiwFloat 6s ease-in-out infinite 0.3s;
+}
+
+.scout-search-bar i,
+.scout-search-bar svg {
+    width: 14px;
+    height: 14px;
+    color: var(--text-body);
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.scout-search-bar span {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.7rem;
+    color: var(--text-body);
+    opacity: 0.6;
+}
+
+/* Influencer Profile Grid */
+.scout-profiles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+}
+
+.scout-profile-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: hiwFloatAlt 6.5s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scout-profile-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.scout-profile-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.scout-profile-card:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.scout-profile-card.highlighted {
+    border: 2px solid var(--accent-rust-orange);
+    box-shadow: 0 0 20px rgba(211, 84, 0, 0.15);
+}
+
+.scout-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.scout-name {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.scout-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.scout-badge--vibe {
+    background: rgba(85, 107, 47, 0.12);
+    color: var(--accent-sage-green);
+}
+
+.scout-badge--audience {
+    background: rgba(85, 107, 47, 0.12);
+    color: var(--accent-sage-green);
+}
+
+/* =============================================
+   CARD 2 — THE DIPLOMAT (Email Outreach)
+   ============================================= */
+.diplomat-mockup {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+}
+
+/* Email Window */
+.diplomat-email {
+    flex: 1.4;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(62, 39, 35, 0.07);
+    animation: hiwFloat 6.5s ease-in-out infinite;
+}
+
+.diplomat-email-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(62, 39, 35, 0.05);
+}
+
+.diplomat-email-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.diplomat-email-dot:nth-child(1) {
+    background: #ff6b6b;
+}
+
+.diplomat-email-dot:nth-child(2) {
+    background: #ffd93d;
+}
+
+.diplomat-email-dot:nth-child(3) {
+    background: #6bcb77;
+}
+
+.diplomat-email-title {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--text-body);
+    margin-left: 5px;
+}
+
+.diplomat-email-body {
+    padding: 10px 12px;
+}
+
+.diplomat-email-to {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    color: var(--text-body);
+    opacity: 0.5;
+    margin-bottom: 6px;
+}
+
+.diplomat-email-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.65rem;
+    line-height: 1.55;
+    color: var(--text-deep-espresso);
+}
+
+.ai-highlight {
+    background: rgba(211, 84, 0, 0.15);
+    border-bottom: 2px solid var(--accent-rust-orange);
+    padding: 1px 2px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.ai-highlight::after {
+    content: '|';
+    color: var(--accent-rust-orange);
+    font-weight: 700;
+    animation: cursorBlink 1s step-end infinite;
+    margin-left: 1px;
+}
+
+/* Instagram Side Pane */
+.diplomat-insta {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(62, 39, 35, 0.06);
+    animation: hiwFloatAlt 7s ease-in-out infinite 0.5s;
+}
+
+.diplomat-insta-img {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #f5e6d3, #e8d5c4, #dfc8b8);
+    position: relative;
+}
+
+.diplomat-insta-img::after {
+    content: '📸';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    opacity: 0.4;
+}
+
+.diplomat-insta-details {
+    padding: 8px 10px;
+}
+
+.diplomat-insta-handle {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    margin-bottom: 3px;
+}
+
+.diplomat-insta-caption {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    color: var(--text-body);
+    line-height: 1.35;
+    opacity: 0.65;
+}
+
+/* =============================================
+   CARD 3 — THE CLOSER (Negotiation)
+   ============================================= */
+.closer-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.closer-bubble {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.06);
+}
+
+.closer-bubble--influencer {
+    border-radius: 14px 14px 14px 4px;
+    align-self: flex-start;
+    max-width: 85%;
+    animation: hiwFloat 6s ease-in-out infinite;
+}
+
+.closer-bubble--ai {
+    border-radius: 14px 14px 4px 14px;
+    align-self: flex-end;
+    max-width: 85%;
+    animation: hiwFloatAlt 6.5s ease-in-out infinite 0.4s;
+}
+
+.closer-bubble-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    opacity: 0.5;
+    color: var(--text-body);
+}
+
+.closer-bubble--ai .closer-bubble-label {
+    color: var(--accent-rust-orange);
+    opacity: 0.8;
+}
+
+.closer-bubble-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-deep-espresso);
+    line-height: 1.4;
+}
+
+/* Budget Slider */
+.closer-slider-wrap {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.06);
+    animation: hiwFloat 7s ease-in-out infinite 0.8s;
+}
+
+.closer-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.closer-slider-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-body);
+}
+
+.closer-slider-value {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--accent-sage-green);
+}
+
+.closer-slider-track {
+    width: 100%;
+    height: 5px;
+    background: rgba(62, 39, 35, 0.08);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.closer-slider-fill {
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(90deg, var(--accent-sage-green), #7a9a4a);
+    border-radius: 3px;
+    animation: sliderMove 4s ease-in-out infinite;
+}
+
+/* Success Badge */
+.closer-success {
+    background: rgba(85, 107, 47, 0.1);
+    border: 1px solid rgba(85, 107, 47, 0.2);
+    border-radius: 14px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    align-self: center;
+    animation: successGlow 3s ease-in-out infinite;
+}
+
+.closer-success-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-sage-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.closer-success-icon svg,
+.closer-success-icon i {
+    width: 10px;
+    height: 10px;
+    stroke-width: 3;
+}
+
+.closer-success-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-sage-green);
+}
+
+/* =============================================
+   CARD 4 — CRM (Influencer Management)
+   ============================================= */
+.crm-mockup {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(62, 39, 35, 0.06);
+    animation: hiwFloat 6.5s ease-in-out infinite 0.3s;
+}
+
+.crm-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(62, 39, 35, 0.06);
+}
+
+.crm-title {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+}
+
+.crm-count {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--text-body);
+    opacity: 0.6;
+}
+
+/* Table header */
+.crm-table-head {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1fr;
+    gap: 6px;
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(62, 39, 35, 0.04);
+}
+
+.crm-th {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-body);
+    opacity: 0.5;
+}
+
+/* Table rows */
+.crm-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1fr;
+    gap: 6px;
+    align-items: center;
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(62, 39, 35, 0.03);
+    transition: background 0.2s ease;
+}
+
+.crm-row:hover {
+    background: rgba(62, 39, 35, 0.02);
+}
+
+.crm-influencer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.crm-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.crm-influencer-name {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--text-deep-espresso);
+}
+
+.crm-platform {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    color: var(--text-body);
+}
+
+.crm-status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.crm-status-tag--active {
+    background: rgba(85, 107, 47, 0.12);
+    color: var(--accent-sage-green);
+}
+
+.crm-status-tag--negotiating {
+    background: rgba(211, 84, 0, 0.1);
+    color: var(--accent-rust-orange);
+}
+
+.crm-status-tag--pending {
+    background: rgba(62, 39, 35, 0.08);
+    color: var(--text-body);
+}
+
+.crm-view-btn {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--accent-rust-orange);
+    background: none;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+    border-radius: 8px;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.crm-view-btn:hover {
+    background: var(--accent-rust-orange);
+    color: white;
+}
+
+/* =============================================
+   CARD 5 — ANALYTICS (Performance Tracking)
+   ============================================= */
+.analytics-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+/* Bar Chart */
+.analytics-chart {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 12px 28px rgba(62, 39, 35, 0.05);
+    animation: hiwFloat 6.5s ease-in-out infinite;
+}
+
+.analytics-chart-title {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-body);
+    margin-bottom: 10px;
+    opacity: 0.6;
+}
+
+.analytics-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 70px;
+}
+
+.analytics-bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    min-height: 8px;
+    transition: height 0.6s ease;
+}
+
+.analytics-bar--sage {
+    background: linear-gradient(180deg, var(--accent-sage-green), rgba(85, 107, 47, 0.6));
+}
+
+.analytics-bar--rust {
+    background: linear-gradient(180deg, var(--accent-rust-orange), rgba(211, 84, 0, 0.5));
+}
+
+.analytics-bar--light {
+    background: linear-gradient(180deg, rgba(62, 39, 35, 0.15), rgba(62, 39, 35, 0.06));
+}
+
+/* Metric Data Cards */
+.analytics-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+}
+
+.analytics-metric {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(62, 39, 35, 0.04);
+    animation: hiwFloatAlt 6s ease-in-out infinite;
+}
+
+.analytics-metric:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.analytics-metric:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.analytics-metric-value {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-deep-espresso);
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.analytics-metric-value .up-arrow {
+    color: var(--accent-sage-green);
+    font-size: 0.7rem;
+}
+
+.analytics-metric-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.48rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-body);
+    opacity: 0.6;
+}
+
+/* =============================================
+   CARD 6 — PAYMENTS (Escrow & Payouts)
+   ============================================= */
+.payments-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+/* Transaction Panel */
+.payments-transaction {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 12px 28px rgba(62, 39, 35, 0.05);
+    animation: hiwFloat 6.5s ease-in-out infinite;
+}
+
+.payments-status-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-body);
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+
+.payments-progress-bar-wrap {
+    width: 100%;
+    height: 8px;
+    background: rgba(62, 39, 35, 0.07);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.payments-progress-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #7a9a4a, var(--accent-sage-green));
+    border-radius: 4px;
+    animation: progressFill 3s ease-out forwards;
+}
+
+.payments-verified-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--accent-sage-green);
+}
+
+/* Vault + Released Row */
+.payments-bottom {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Escrow Vault */
+.payments-vault {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px;
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.05);
+    animation: hiwFloatAlt 7s ease-in-out infinite 0.5s;
+}
+
+.vault-icon-wrap {
+    width: 40px;
+    height: 40px;
+    background: rgba(211, 84, 0, 0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vault-icon-wrap .vault-lock {
+    color: var(--accent-rust-orange);
+    animation: unlockSpin 4s ease-in-out infinite;
+}
+
+.vault-icon-wrap .vault-lock svg,
+.vault-icon-wrap .vault-lock i {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.vault-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-body);
+    opacity: 0.7;
+}
+
+/* Payment Released Bubble */
+.payments-released {
+    flex: 1.3;
+    background: rgba(85, 107, 47, 0.08);
+    border: 1px solid rgba(85, 107, 47, 0.15);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px;
+    animation: successGlow 3.5s ease-in-out infinite 0.5s;
+}
+
+.released-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-sage-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.released-icon svg,
+.released-icon i {
+    width: 14px;
+    height: 14px;
+    stroke-width: 3;
+}
+
+.released-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--accent-sage-green);
+    text-align: center;
+    line-height: 1.3;
+}
+
+.released-amount {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--accent-sage-green);
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes hiwFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes hiwFloatAlt {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    30% {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+
+    60% {
+        transform: translateY(-12px) rotate(-0.5deg);
+    }
+
+    85% {
+        transform: translateY(-4px) rotate(0.2deg);
+    }
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes sliderMove {
+
+    0%,
+    100% {
+        width: 70%;
+    }
+
+    50% {
+        width: 82%;
+    }
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes successGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(85, 107, 47, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 6px rgba(85, 107, 47, 0.1);
+    }
+}
+
+@keyframes unlockSpin {
+
+    0%,
+    70%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(-15deg);
+    }
+
+    90% {
+        transform: rotate(5deg);
+    }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1000px) {
+    .hiw-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .hiw-headline {
+        font-size: 2.2rem;
+    }
+
+    .hiw-section {
+        padding: 5rem 1.5rem 6rem 1.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .hiw-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 420px;
+    }
+
+    .hiw-section {
+        padding: 4rem 1.25rem 5rem 1.25rem;
+    }
+
+    .hiw-headline {
+        font-size: 1.8rem;
+    }
+
+    .hiw-card-text {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+
+    .hiw-card-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .hiw-card-mockup {
+        min-height: 240px;
+    }
+}

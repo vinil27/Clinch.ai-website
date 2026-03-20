@@ -1,0 +1,633 @@
+/* =============================================
+   Section 6 — Final CTA & Footer
+   ============================================= */
+
+/* --- Section Container --- */
+.cta-section {
+    position: relative;
+    padding: 8rem 2rem 6rem 2rem;
+    background-color: var(--bg-warm-cream);
+    /* Large, diffused Rust Orange glowing orb centred behind the CTA */
+    background-image:
+        radial-gradient(ellipse 700px 700px at 50% 45%,
+            rgba(211, 84, 0, 0.09) 0%,
+            rgba(211, 84, 0, 0.04) 35%,
+            transparent 70%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Extra ambient glow pseudo-element for depth */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(211, 84, 0, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px);
+}
+
+/* -----------------------------------------------
+   Main Floating CTA Glass Card
+   ----------------------------------------------- */
+.cta-glass-card {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 24px;
+    padding: 4rem 3.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow:
+        0 40px 90px rgba(62, 39, 35, 0.08),
+        0 15px 35px rgba(62, 39, 35, 0.04);
+    animation: ctaFloat 8s ease-in-out infinite;
+}
+
+/* --- Card Content --- */
+.cta-headline {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-deep-espresso);
+    margin: 0;
+}
+
+.cta-sub {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    margin: 0;
+    max-width: 560px;
+}
+
+/* --- Primary CTA Button --- */
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 100px;
+    background: var(--accent-rust-orange);
+    color: #fff;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease;
+    box-shadow:
+        0 8px 24px rgba(211, 84, 0, 0.3),
+        0 2px 8px rgba(211, 84, 0, 0.15);
+    text-decoration: none;
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow:
+        0 16px 40px rgba(211, 84, 0, 0.38),
+        0 6px 16px rgba(211, 84, 0, 0.2);
+}
+
+.cta-btn:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* --- Micro-copy --- */
+.cta-micro {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.875rem;
+    color: var(--text-body);
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* -----------------------------------------------
+   Floating Success Fragments
+   ----------------------------------------------- */
+
+/* Container wrapper for positioning fragments relative to the card */
+.cta-card-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* --- Fragment 1: "Deal Closed" pill (top-right) --- */
+.cta-frag-deal {
+    position: absolute;
+    top: -18px;
+    right: -60px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
+    box-shadow:
+        0 12px 30px rgba(62, 39, 35, 0.08),
+        0 4px 12px rgba(62, 39, 35, 0.04);
+    transform: rotate(6deg);
+    z-index: 2;
+    animation: fragFloat 6s ease-in-out infinite 0.4s;
+    pointer-events: none;
+}
+
+.cta-frag-deal .frag-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-sage-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.cta-frag-deal .frag-check svg,
+.cta-frag-deal .frag-check i {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2.5;
+}
+
+.cta-frag-deal .frag-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    white-space: nowrap;
+}
+
+/* --- Fragment 2: "Contract Signed" badge (bottom-left) --- */
+.cta-frag-contract {
+    position: absolute;
+    bottom: -10px;
+    left: -50px;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    z-index: 2;
+    animation: fragFloat 7s ease-in-out infinite 1.2s;
+    pointer-events: none;
+}
+
+.cta-frag-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0d4fc, #c9b8f0);
+    box-shadow: 0 6px 18px rgba(62, 39, 35, 0.1);
+    flex-shrink: 0;
+    filter: blur(0.5px);
+}
+
+.cta-frag-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 100px;
+    box-shadow: 0 10px 26px rgba(62, 39, 35, 0.07);
+    margin-left: -12px;
+    /* overlap with avatar */
+}
+
+.cta-frag-badge .frag-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-sage-green);
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+.cta-frag-badge .frag-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    white-space: nowrap;
+}
+
+/* -----------------------------------------------
+   Footer — Full Redesign
+   ----------------------------------------------- */
+
+/* Top nav bar above the dark container */
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-primary-light, #FDFBF7);
+}
+
+.footer-nav a {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary-dark, #3E2723);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--color-accent-rust, #D35400);
+}
+
+/* Dark container */
+.site-footer {
+    background: var(--color-primary-dark, #3E2723);
+    border-radius: 28px;
+    margin: 0 2rem 2rem 2rem;
+    padding: 3rem 3.5rem 2rem 3.5rem;
+    color: #FFFFFF;
+}
+
+/* --- Top Block: Logo + Social  |  Download Card --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+/* Logo & Social */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-img {
+    height: 100px;
+    width: auto;
+    transition: opacity 0.2s ease;
+}
+
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+.footer-social a svg,
+.footer-social a i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Download Card */
+.footer-download {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg, 24px);
+    padding: 1.5rem 2rem;
+    min-width: 280px;
+}
+
+.footer-download-title {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.3rem;
+}
+
+.footer-download-sub {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 1.25rem;
+}
+
+.footer-download-platforms {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-platform {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.footer-platform:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-platform:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.footer-platform svg,
+.footer-platform i {
+    width: 28px;
+    height: 28px;
+}
+
+/* --- Divider --- */
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 0 2rem 0;
+}
+
+/* --- Bottom Block: Link Columns + Subscription --- */
+.footer-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.footer-col a {
+    display: block;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    margin-bottom: 0.65rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #FFFFFF;
+}
+
+/* Subscription column */
+.footer-subscribe h4 {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+}
+
+.footer-subscribe p {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+}
+
+.footer-subscribe-form {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 100px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.footer-subscribe-form:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-subscribe-form input {
+    flex: 1;
+    padding: 0.7rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.82rem;
+    outline: none;
+}
+
+.footer-subscribe-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-subscribe-form button {
+    padding: 0.7rem 1.25rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: background 0.2s ease;
+}
+
+.footer-subscribe-form button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-subscribe-form button svg,
+.footer-subscribe-form button i {
+    width: 14px;
+    height: 14px;
+}
+
+/* --- Copyright --- */
+.footer-copy {
+    text-align: right;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* -----------------------------------------------
+   Animations
+   ----------------------------------------------- */
+@keyframes ctaFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fragFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--frag-rot, 0deg));
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(var(--frag-rot, 0deg));
+    }
+}
+
+/* Specific rotation for tilted "Deal Closed" pill */
+.cta-frag-deal {
+    --frag-rot: 6deg;
+}
+
+/* -----------------------------------------------
+   Responsive
+   ----------------------------------------------- */
+@media (max-width: 900px) {
+    .cta-glass-card {
+        padding: 3rem 2rem;
+    }
+
+    .cta-headline {
+        font-size: 2.1rem;
+    }
+
+    .cta-frag-deal {
+        right: -20px;
+        top: -14px;
+    }
+
+    .cta-frag-contract {
+        left: -20px;
+        bottom: -8px;
+    }
+
+    /* Footer responsive */
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-subscribe {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .cta-section {
+        padding: 5rem 1.25rem 4rem 1.25rem;
+    }
+
+    .cta-glass-card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .cta-headline {
+        font-size: 1.75rem;
+    }
+
+    .cta-sub {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+    }
+
+    .cta-frag-deal {
+        right: 0;
+        top: -16px;
+        transform: rotate(4deg);
+    }
+
+    .cta-frag-contract {
+        left: 0;
+        bottom: -10px;
+    }
+
+    /* Footer mobile */
+    .site-footer {
+        margin: 0 1rem 1rem 1rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .footer-nav {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-download {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .footer-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-copy {
+        text-align: center;
+    }
+}

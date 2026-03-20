@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluncy.ai - Build Stunning Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Reuse variables from the Style Guide -->
+    <link rel="stylesheet" href="../style_guide/styles.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="problem.css">
+    <link rel="stylesheet" href="howitworks.css">
+    <link rel="stylesheet" href="trustsafety.css">
+    <link rel="stylesheet" href="testimonials.css">
+    <link rel="stylesheet" href="waitlist.css">
+    <link rel="stylesheet" href="cta-footer.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header container">
+        <div class="logo">
+            <img src="images/logo.png" alt="Clinch.ai Logo" style="height: 120px; width: auto;">
+        </div>
+        <nav class="main-nav">
+            <a href="#how-it-works">Features</a>
+            <a href="#trust-safety">Safety</a>
+            <a href="#testimonials">Testimonials</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-primary" onclick="openWaitlist(event)">Join Waitlist</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="container hero-content">
+            <!-- Central Content -->
+            <div class="hero-center">
+                <h1 class="hero-title">
+                    Hire an AI to Negotiate <br>
+                    Your <span class="highlight-blue">Influencer Deals</span>
+                </h1>
+                <p class="hero-subtitle">Stop manually scrolling Social Media and chasing campaign. Clinch is the first
+                    AI Agent that finds Nano & Micro - influencers, verifies their "vibe," negotiates rates and manages
+                    campaign for you—24/7.</p>
+
+                <!-- Chat Stream Interface -->
+                <div class="chat-stream-container">
+                    <!-- AI Message (Creator Profiles) -->
+                    <div class="chat-row ai-row">
+                        <div class="ai-avatar">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <div class="chat-bubble ai-bubble">
+                            <p class="ai-text">Here are a few verified influencers matching your campaign:</p>
+
+                            <!-- Creator Cards Container (Scrollable/Horizontal) -->
+                            <div class="creator-cards-scroll">
+                                <!-- Card 1 -->
+                                <div class="creator-card">
+                                    <div class="card-header">
+                                        <div class="verified-badge">
+                                            <i data-lucide="check-circle" size="14"></i> Verified
+                                        </div>
+                                        <span class="match-score">98% Match</span>
+                                    </div>
+                                    <div class="creator-info">
+                                        <div class="creator-img-placeholder" style="background-color: #e0d4fc;"></div>
+                                        <div>
+                                            <h4>Priya Sharma</h4>
+                                            <p class="handle">@priyastyle</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="label">Followers</span>
+                                            <span class="value">45k</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Eng. Rate</span>
+                                            <span class="value">4.2%</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn-negotiate">Negotiate</button>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="creator-card">
+                                    <div class="card-header">
+                                        <div class="verified-badge">
+                                            <i data-lucide="check-circle" size="14"></i> Verified
+                                        </div>
+                                        <span class="match-score">92% Match</span>
+                                    </div>
+                                    <div class="creator-info">
+                                        <div class="creator-img-placeholder" style="background-color: #ffe0b2;"></div>
+                                        <div>
+                                            <h4>Rohan Mehta</h4>
+                                            <p class="handle">@rohan.travels</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="label">Followers</span>
+                                            <span class="value">28k</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Eng. Rate</span>
+                                            <span class="value">5.1%</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn-negotiate">Negotiate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Input Area (Floating Pill) -->
+                    <div class="input-pill-container">
+                        <!-- Floating Filter Chips -->
+                        <div class="floating-chips">
+                            <div class="chip">
+                                <span>Platform: Instagram</span>
+                                <i data-lucide="x" size="12"></i>
+                            </div>
+                            <div class="chip">
+                                <span>Budget: < ₹50k</span>
+                                        <i data-lucide="x" size="12"></i>
+                            </div>
+                        </div>
+
+                        <div class="input-pill">
+                            <input type="text" class="chat-input" placeholder="Find fashion influencers in Mumbai...">
+                            <button class="btn-send-round">
+                                <i data-lucide="arrow-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof Section -->
+        <section class="social-proof">
+            <div class="social-proof-banner">
+                <h3 class="social-proof-headline">Join 1,400+ forward-thinking brands and agencies on the waitlist.
+                </h3>
+
+                <div class="marquee-track">
+                    <div class="marquee-strip">
+                        <div class="icon-badge">
+                            <i data-lucide="shopping-bag"></i>
+                            <span>D2C Brands</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="rocket"></i>
+                            <span>Startups</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="briefcase"></i>
+                            <span>Marketing Agencies</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="tag"></i>
+                            <span>E-commerce</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate strip for seamless infinite loop -->
+                    <div class="marquee-strip" aria-hidden="true">
+                        <div class="icon-badge">
+                            <i data-lucide="shopping-bag"></i>
+                            <span>D2C Brands</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="rocket"></i>
+                            <span>Startups</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="briefcase"></i>
+                            <span>Marketing Agencies</span>
+                        </div>
+                        <div class="icon-badge">
+                            <i data-lucide="tag"></i>
+                            <span>E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 — The Problem -->
+        <section class="problem-section" id="the-problem">
+            <div class="problem-grid">
+
+                <!-- LEFT COLUMN -->
+                <div class="problem-left">
+                    <p class="section-label">THE BOTTLENECK</p>
+
+                    <h2 class="problem-headline">
+                        Influencer Marketing Shouldn't Feel Like Manual Labor.
+                    </h2>
+
+                    <!-- Problem Cards -->
+                    <div class="problem-cards">
+                        <!-- Card 1 -->
+                        <div class="problem-card">
+                            <div class="problem-icon">
+                                <i data-lucide="x-circle"></i>
+                            </div>
+                            <p class="problem-card-text">
+                                <strong>The Endless Scroll:</strong> Wasting hours on Instagram and Youtube trying to
+                                find creators.
+                            </p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="problem-card">
+                            <div class="problem-icon">
+                                <i data-lucide="x-circle"></i>
+                            </div>
+                            <p class="problem-card-text">
+                                <strong>The Inbox Chaos:</strong> Tracking negotiations across email, DMs, and messy
+                                spreadsheets.
+                            </p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="problem-card">
+                            <div class="problem-icon">
+                                <i data-lucide="x-circle"></i>
+                            </div>
+                            <p class="problem-card-text">
+                                <strong>The Risk:</strong> Guessing if an influencer has fake followers or bots.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="problem-subheadline">
+                        Stop acting like a crowded call center.<br>
+                        Start acting like a <em>Director</em>.
+                    </p>
+                </div>
+
+                <!-- RIGHT COLUMN — Chaos UI Graphic -->
+                <div class="problem-right">
+
+                    <!-- Connection Lines — measured from card edges to phone edges -->
+                    <svg class="chaos-lines" viewBox="0 0 500 640" preserveAspectRatio="none">
+                        <!-- Spreadsheet-1 (right edge) → phone (top-left) -->
+                        <path d="M219,41 C260,60 160,100 155,150" />
+                        <!-- DM-1 (left edge) → phone (top-right) -->
+                        <path d="M320,37 C310,70 350,120 345,170" />
+                        <!-- DM-3 (right edge) → phone (left side) -->
+                        <path d="M146,234 C150,250 143,260 143,280" />
+                        <!-- DM-4 (left edge) → phone (right side) -->
+                        <path d="M354,426 C357,420 357,415 357,410" />
+                        <!-- DM-2 (right edge) → phone (bottom-left) -->
+                        <path d="M187,556 C200,540 175,520 170,504" />
+                        <!-- Spreadsheet-2 (left edge) → phone (bottom-right) -->
+                        <path d="M367,558 C360,540 355,520 350,504" />
+                    </svg>
+
+                    <!-- Central Phone Frame -->
+                    <div class="chaos-phone-frame">
+                        <div class="phone-status-bar">
+                            <span>9:41</span>
+                            <span>●●●</span>
+                        </div>
+                        <div class="phone-inbox">
+                            <div class="phone-inbox-header">
+                                <span>Inbox</span>
+                                <span class="inbox-unread-badge">99+</span>
+                            </div>
+
+                            <div class="inbox-row">
+                                <div class="inbox-avatar" style="background:linear-gradient(135deg,#e0d4fc,#c9b8f0);">
+                                </div>
+                                <div class="inbox-text">
+                                    <span class="inbox-name">@priyastyle</span>
+                                    <span class="inbox-preview">Hey! What's the rate for 2 reels?</span>
+                                </div>
+                                <div class="inbox-dot"></div>
+                            </div>
+
+                            <div class="inbox-row">
+                                <div class="inbox-avatar" style="background:linear-gradient(135deg,#ffe0b2,#ffcc80);">
+                                </div>
+                                <div class="inbox-text">
+                                    <span class="inbox-name">@rohan.travels</span>
+                                    <span class="inbox-preview">Invoice still pending…</span>
+                                </div>
+                                <div class="inbox-dot"></div>
+                            </div>
+
+                            <div class="inbox-row">
+                                <div class="inbox-avatar" style="background:linear-gradient(135deg,#b2dfdb,#80cbc4);">
+                                </div>
+                                <div class="inbox-text">
+                                    <span class="inbox-name">@fitnessguru</span>
+                                    <span class="inbox-preview">Can we do barter instead?</span>
+                                </div>
+                                <div class="inbox-dot"></div>
+                            </div>
+
+                            <div class="inbox-row">
+                                <div class="inbox-avatar" style="background:linear-gradient(135deg,#f8bbd0,#f48fb1);">
+                                </div>
+                                <div class="inbox-text">
+                                    <span class="inbox-name">@beautybysara</span>
+                                    <span class="inbox-preview">Didn't receive the brief yet</span>
+                                </div>
+                                <div class="inbox-dot"></div>
+                            </div>
+
+                            <div class="inbox-row">
+                                <div class="inbox-avatar" style="background:linear-gradient(135deg,#d1c4e9,#b39ddb);">
+                                </div>
+                                <div class="inbox-text">
+                                    <span class="inbox-name">@techwithankit</span>
+                                    <span class="inbox-preview">Need contract ASAP</span>
+                                </div>
+                                <div class="inbox-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating DM Bubbles -->
+                    <div class="chaos-dm chaos-dm-1">
+                        <span class="notif-badge">99+</span>
+                        "What's your rate for 3 stories?"
+                    </div>
+
+                    <div class="chaos-dm chaos-dm-2">
+                        <span class="notif-badge">24</span>
+                        "Sent invoice, pls check DM"
+                    </div>
+
+                    <div class="chaos-dm chaos-dm-3">
+                        <span class="notif-badge">99+</span>
+                        "Following up on collab…"
+                    </div>
+
+                    <div class="chaos-dm chaos-dm-4">
+                        <span class="notif-badge">12</span>
+                        "Is this still available?"
+                    </div>
+
+                    <!-- Floating Spreadsheet Fragments -->
+                    <div class="chaos-spreadsheet chaos-spreadsheet-1">
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">Creator</span>
+                            <span class="spreadsheet-cell">Status</span>
+                            <span class="spreadsheet-cell">Cost</span>
+                        </div>
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">@priya</span>
+                            <span class="spreadsheet-cell error">Pending?</span>
+                            <span class="spreadsheet-cell">₹8k</span>
+                        </div>
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">@rohan</span>
+                            <span class="spreadsheet-cell error">Invoice missing</span>
+                            <span class="spreadsheet-cell error">₹10k sent?</span>
+                        </div>
+                    </div>
+
+                    <div class="chaos-spreadsheet chaos-spreadsheet-2">
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">Platform</span>
+                            <span class="spreadsheet-cell">Followers</span>
+                        </div>
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">IG</span>
+                            <span class="spreadsheet-cell error">Fake?</span>
+                        </div>
+                        <div class="spreadsheet-row">
+                            <span class="spreadsheet-cell">Youtube</span>
+                            <span class="spreadsheet-cell">12k</span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 — How It Works (AI Workforce) -->
+        <section class="hiw-section" id="how-it-works">
+            <!-- Section Header -->
+            <div class="hiw-header">
+                <p class="hiw-label">Your AI Workforce</p>
+                <h2 class="hiw-headline">Meet Your New AI Marketing Team.</h2>
+            </div>
+
+            <!-- 2×3 Feature Card Grid -->
+            <div class="hiw-grid">
+
+                <!-- ══════════ CARD 1 — THE SCOUT ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Deep Discovery, Beyond Keywords.</h3>
+                        <p>Our AI scans visuals, captions, and audience sentiment to find the Nano-influencers (1k–50k)
+                            who genuinely align with your brand aesthetic.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="scout-mockup">
+                            <!-- Search Bar -->
+                            <div class="scout-search-bar">
+                                <i data-lucide="search"></i>
+                                <span>Find sustainable fashion influencers...</span>
+                            </div>
+                            <!-- Profile Grid -->
+                            <div class="scout-profiles-grid">
+                                <div class="scout-profile-card highlighted">
+                                    <div class="scout-avatar"
+                                        style="background: linear-gradient(135deg, #e0d4fc, #c9b8f0);"></div>
+                                    <span class="scout-name">Priya S.</span>
+                                    <span class="scout-badge scout-badge--vibe">Vibe: 98%</span>
+                                </div>
+                                <div class="scout-profile-card">
+                                    <div class="scout-avatar"
+                                        style="background: linear-gradient(135deg, #ffe0b2, #ffcc80);"></div>
+                                    <span class="scout-name">Rohan M.</span>
+                                    <span class="scout-badge scout-badge--audience">Authentic</span>
+                                </div>
+                                <div class="scout-profile-card">
+                                    <div class="scout-avatar"
+                                        style="background: linear-gradient(135deg, #b2dfdb, #80cbc4);"></div>
+                                    <span class="scout-name">Anita K.</span>
+                                    <span class="scout-badge scout-badge--vibe">Vibe: 91%</span>
+                                </div>
+                                <div class="scout-profile-card">
+                                    <div class="scout-avatar"
+                                        style="background: linear-gradient(135deg, #f8bbd0, #f48fb1);"></div>
+                                    <span class="scout-name">Sara J.</span>
+                                    <span class="scout-badge scout-badge--audience">Authentic</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ CARD 2 — THE DIPLOMAT ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Personalized Outreach at Scale.</h3>
+                        <p>The AI drafts hyper-personalized emails citing specific posts from the creator's feed. It
+                            handles the initial "warm-up" using 100% compliant methods.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="diplomat-mockup">
+                            <!-- Email Window -->
+                            <div class="diplomat-email">
+                                <div class="diplomat-email-header">
+                                    <span class="diplomat-email-dot"></span>
+                                    <span class="diplomat-email-dot"></span>
+                                    <span class="diplomat-email-dot"></span>
+                                    <span class="diplomat-email-title">New Message</span>
+                                </div>
+                                <div class="diplomat-email-body">
+                                    <div class="diplomat-email-to">To: priya@creative.co</div>
+                                    <div class="diplomat-email-text">
+                                        Hi Priya! 👋<br><br>
+                                        I loved your <span class="ai-highlight">recent Jaipur travel reel</span> — the
+                                        color grading was stunning. We think your aesthetic is a perfect fit for our new
+                                        summer collection…
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Instagram Side Pane -->
+                            <div class="diplomat-insta">
+                                <div class="diplomat-insta-img"></div>
+                                <div class="diplomat-insta-details">
+                                    <div class="diplomat-insta-handle">@priyastyle</div>
+                                    <div class="diplomat-insta-caption">Golden hour in Jaipur 🌅 New collection dropping
+                                        soon…</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ CARD 3 — THE CLOSER ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Autonomous Negotiation.</h3>
+                        <p>Simply set your budget, and the Agent handles the back-and-forth negotiation emails. It knows
+                            when to offer a bonus and when to walk away.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="closer-mockup">
+                            <!-- Influencer Bubble -->
+                            <div class="closer-bubble closer-bubble--influencer">
+                                <div class="closer-bubble-label">Influencer</div>
+                                <div class="closer-bubble-text">"My rate is $350 for 2 reels."</div>
+                            </div>
+                            <!-- AI Counter -->
+                            <div class="closer-bubble closer-bubble--ai">
+                                <div class="closer-bubble-label">Clinch AI</div>
+                                <div class="closer-bubble-text">"$250 + performance bonus?"</div>
+                            </div>
+                            <!-- Budget Slider -->
+                            <div class="closer-slider-wrap">
+                                <div class="closer-slider-header">
+                                    <span class="closer-slider-label">Budget Tracker</span>
+                                    <span class="closer-slider-value">$300 / $400</span>
+                                </div>
+                                <div class="closer-slider-track">
+                                    <div class="closer-slider-fill"></div>
+                                </div>
+                            </div>
+                            <!-- Success Badge -->
+                            <div class="closer-success">
+                                <div class="closer-success-icon">
+                                    <i data-lucide="check"></i>
+                                </div>
+                                <span class="closer-success-text">Deal Locked: $300</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ CARD 4 — CRM ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Manage All Your Influencers.</h3>
+                        <p>Seamlessly organize your entire creator network in one place. Track status, contact details,
+                            and campaign history with a built-in CRM.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="crm-mockup">
+                            <div class="crm-header">
+                                <span class="crm-title">My Influencers</span>
+                                <span class="crm-count">12 creators</span>
+                            </div>
+                            <div class="crm-table-head">
+                                <span class="crm-th">Influencer</span>
+                                <span class="crm-th">Platform</span>
+                                <span class="crm-th">Status</span>
+                                <span class="crm-th"></span>
+                            </div>
+                            <!-- Row 1 -->
+                            <div class="crm-row">
+                                <div class="crm-influencer">
+                                    <div class="crm-avatar"
+                                        style="background: linear-gradient(135deg, #e0d4fc, #c9b8f0);"></div>
+                                    <span class="crm-influencer-name">Priya S.</span>
+                                </div>
+                                <span class="crm-platform">Instagram</span>
+                                <span class="crm-status-tag crm-status-tag--active">Active</span>
+                                <button class="crm-view-btn">View</button>
+                            </div>
+                            <!-- Row 2 -->
+                            <div class="crm-row">
+                                <div class="crm-influencer">
+                                    <div class="crm-avatar"
+                                        style="background: linear-gradient(135deg, #ffe0b2, #ffcc80);"></div>
+                                    <span class="crm-influencer-name">Rohan M.</span>
+                                </div>
+                                <span class="crm-platform">YouTube</span>
+                                <span class="crm-status-tag crm-status-tag--negotiating">Negotiating</span>
+                                <button class="crm-view-btn">View</button>
+                            </div>
+                            <!-- Row 3 -->
+                            <div class="crm-row">
+                                <div class="crm-influencer">
+                                    <div class="crm-avatar"
+                                        style="background: linear-gradient(135deg, #b2dfdb, #80cbc4);"></div>
+                                    <span class="crm-influencer-name">Anita K.</span>
+                                </div>
+                                <span class="crm-platform">Instagram</span>
+                                <span class="crm-status-tag crm-status-tag--active">Active</span>
+                                <button class="crm-view-btn">View</button>
+                            </div>
+                            <!-- Row 4 -->
+                            <div class="crm-row">
+                                <div class="crm-influencer">
+                                    <div class="crm-avatar"
+                                        style="background: linear-gradient(135deg, #f8bbd0, #f48fb1);"></div>
+                                    <span class="crm-influencer-name">Sara J.</span>
+                                </div>
+                                <span class="crm-platform">TikTok</span>
+                                <span class="crm-status-tag crm-status-tag--pending">Pending</span>
+                                <button class="crm-view-btn">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ CARD 5 — ANALYTICS ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Track Campaign Performance.</h3>
+                        <p>Monitor real-time metrics like engagement, reach, and ROI across all your active campaigns
+                            from a single, intuitive dashboard.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="analytics-mockup">
+                            <!-- Bar Chart -->
+                            <div class="analytics-chart">
+                                <div class="analytics-chart-title">Campaign Reach</div>
+                                <div class="analytics-bars">
+                                    <div class="analytics-bar analytics-bar--light" style="height: 30%;"></div>
+                                    <div class="analytics-bar analytics-bar--sage" style="height: 55%;"></div>
+                                    <div class="analytics-bar analytics-bar--rust" style="height: 45%;"></div>
+                                    <div class="analytics-bar analytics-bar--sage" style="height: 70%;"></div>
+                                    <div class="analytics-bar analytics-bar--light" style="height: 40%;"></div>
+                                    <div class="analytics-bar analytics-bar--rust" style="height: 85%;"></div>
+                                    <div class="analytics-bar analytics-bar--sage" style="height: 65%;"></div>
+                                    <div class="analytics-bar analytics-bar--light" style="height: 50%;"></div>
+                                </div>
+                            </div>
+                            <!-- Metric Cards Row -->
+                            <div class="analytics-metrics">
+                                <div class="analytics-metric">
+                                    <div class="analytics-metric-value">45k</div>
+                                    <div class="analytics-metric-label">Total Engagement</div>
+                                </div>
+                                <div class="analytics-metric">
+                                    <div class="analytics-metric-value">3.5x</div>
+                                    <div class="analytics-metric-label">Avg. ROI</div>
+                                </div>
+                                <div class="analytics-metric">
+                                    <div class="analytics-metric-value">12 <span class="up-arrow">↑</span></div>
+                                    <div class="analytics-metric-label">Live Posts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════ CARD 6 — PAYMENTS ══════════ -->
+                <div class="hiw-card">
+                    <div class="hiw-card-text">
+                        <h3>Escrow & Automated Payouts.</h3>
+                        <p>Your budget is held in secure Escrow and only released when the AI verifies the deliverables.
+                            No more chasing invoices.</p>
+                    </div>
+                    <div class="hiw-card-mockup">
+                        <div class="payments-mockup">
+                            <!-- Transaction Status -->
+                            <div class="payments-transaction">
+                                <div class="payments-status-label">Transaction Status</div>
+                                <div class="payments-progress-bar-wrap">
+                                    <div class="payments-progress-bar-fill"></div>
+                                </div>
+                                <div class="payments-verified-label">Deliverables Verified ✓</div>
+                            </div>
+                            <!-- Vault + Released -->
+                            <div class="payments-bottom">
+                                <div class="payments-vault">
+                                    <div class="vault-icon-wrap">
+                                        <span class="vault-lock"><i data-lucide="lock-open"></i></span>
+                                    </div>
+                                    <span class="vault-label">Escrow Vault</span>
+                                </div>
+                                <div class="payments-released">
+                                    <div class="released-icon">
+                                        <i data-lucide="check"></i>
+                                    </div>
+                                    <span class="released-text">Payment Released</span>
+                                    <span class="released-amount">$300</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 5 — Trust & Safety -->
+        <section class="ts-section" id="trust-safety">
+            <!-- Section Header -->
+            <div class="ts-header">
+                <p class="ts-label">Enterprise Safety</p>
+                <h2 class="ts-headline">Built for Brand Safety First.</h2>
+            </div>
+
+            <!-- Frosted Glass Panel Container -->
+            <div class="ts-glass-panel">
+                <div class="ts-cards-row">
+
+                    <!-- Card 1 — 100% White Hat -->
+                    <div class="ts-card">
+                        <div class="ts-emblem">
+                            <i data-lucide="shield"></i>
+                        </div>
+                        <h3>100% White Hat.</h3>
+                        <p>Every action uses fully compliant platform APIs. No grey-area scraping, no risky
+                            automation—just clean, approved integrations that keep your brand spotless.</p>
+                    </div>
+
+                    <!-- Card 2 — Secure Escrow -->
+                    <div class="ts-card">
+                        <div class="ts-emblem">
+                            <i data-lucide="lock"></i>
+                        </div>
+                        <h3>Secure Escrow.</h3>
+                        <p>Payments are held in secure escrow via Stripe Connect. Funds only release when deliverables
+                            are verified—giving you full control over every rupee.</p>
+                    </div>
+
+                    <!-- Card 3 — Verified Audiences -->
+                    <div class="ts-card">
+                        <div class="ts-emblem">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <h3>Verified Audiences.</h3>
+                        <p>Our AI scans every creator's audience for fake followers and bot engagement before you spend
+                            a single penny—ensuring real reach, real results.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testi-section" id="testimonials">
+
+            <!-- Header Row -->
+            <div class="testi-header">
+                <h2 class="testi-headline">Trusted by Creators,<br>Founders, and<br>Businesses</h2>
+                <div class="testi-header-right">
+                    <p>See how brands and agencies are scaling influencer marketing faster with the power of AI, without
+                        the manual grind.</p>
+                    <a href="#" class="testi-see-all">See all</a>
+                </div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="testi-grid">
+
+                <!-- Row 1, Card 1: Text testimonial -->
+                <div class="testi-card testi-card--text">
+                    <img src="assets/testimonials/avatar_priya.png" alt="Priya Sharma" class="testi-avatar">
+                    <p class="testi-quote">"We no longer rely on manual outreach for every campaign. Cluncy handles it
+                        beautifully."</p>
+                    <div class="testi-author">
+                        <p class="testi-name">Priya Sharma</p>
+                        <p class="testi-role">Head of Marketing, StyleCo</p>
+                    </div>
+                </div>
+
+                <!-- Row 1, Card 2: Dark stat card -->
+                <div class="testi-card testi-card--stat">
+                    <p class="testi-stat-number">10,000+</p>
+                    <p class="testi-stat-desc">Creator deals negotiated and closed using AI by brands and agencies
+                        worldwide every month</p>
+                </div>
+
+                <!-- Row 1, Card 3: Text testimonial -->
+                <div class="testi-card testi-card--text">
+                    <img src="assets/testimonials/avatar_sarah.png" alt="Sarah Chen" class="testi-avatar">
+                    <p class="testi-quote">"Building our influencer workflow with Cluncy was fast, simple, and
+                        surprisingly powerful."</p>
+                    <div class="testi-author">
+                        <p class="testi-name">Sarah Chen</p>
+                        <p class="testi-role">Startup Founder, BeautyAI</p>
+                    </div>
+                </div>
+
+                <!-- Row 2, Card 4: Photo card -->
+                <div class="testi-card testi-card--photo"
+                    style="background-image: url('assets/testimonials/photo_meera.png')">
+                    <div class="testi-photo-overlay">
+                        <p class="testi-name">Meera Kapoor</p>
+                        <p class="testi-role">Growth Manager, InfluenceHub</p>
+                    </div>
+                </div>
+
+                <!-- Row 2, Card 5: Text testimonial (alt) -->
+                <div class="testi-card testi-card--text testi-card--text-alt">
+                    <img src="assets/testimonials/avatar_rohan.png" alt="Rohan Mehta" class="testi-avatar">
+                    <p class="testi-quote">"No manual negotiation needed. The AI handled rate discussions, contracts,
+                        and follow-ups beautifully."</p>
+                    <div class="testi-author">
+                        <p class="testi-name">Rohan Mehta</p>
+                        <p class="testi-role">Agency Director, BrandWave</p>
+                    </div>
+                </div>
+
+                <!-- Row 2, Card 6: Photo card -->
+                <div class="testi-card testi-card--photo"
+                    style="background-image: url('assets/testimonials/photo_ananya.png')">
+                    <div class="testi-photo-overlay">
+                        <p class="testi-name">Ananya Reddy</p>
+                        <p class="testi-role">Head of Partnerships, NovaBrands</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+
+
+
+    <!-- Footer (dark container) -->
+    <footer class="site-footer">
+
+        <!-- Top Block: Logo + Social | Download Card -->
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/Logofooter.png" alt="Clinch.ai" class="footer-logo-img">
+                </div>
+                <div class="footer-social">
+
+                    <a href="#" aria-label="X (Twitter)" style="font-weight:700;font-size:14px;">𝕏</a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <hr class="footer-divider">
+
+        <!-- Bottom Block: Link Columns + Subscription -->
+        <div class="footer-bottom">
+
+            <!-- Product -->
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#how-it-works">Features</a>
+                <a href="#trust-safety">Safety</a>
+                <a href="#testimonials">Testimonials</a>
+            </div>
+
+            <!-- Company -->
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <!-- Subscription -->
+            <div class="footer-subscribe">
+                <h4>Subscription</h4>
+                <p>Subscribe to our newsletter for the latest updates, tips, and special offers</p>
+                <form class="footer-subscribe-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe Now <i data-lucide="arrow-up-right"></i></button>
+                </form>
+            </div>
+
+        </div>
+
+        <p class="footer-copy">&copy; 2026 Clinch.ai Inc. All rights reserved.</p>
+    </footer>
+
+    <!-- Join Waitlist Modal Overlay -->
+    <div class="waitlist-overlay" id="waitlistOverlay">
+        <div class="waitlist-card">
+            <button class="waitlist-close" onclick="closeWaitlist()">
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="waitlist-icon">
+                <img src="images/logo.png" alt="Clinch.ai Logo" class="waitlist-logo-img">
+            </div>
+
+            <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
+                <h2 class="waitlist-title">Get Early Access</h2>
+                <p class="waitlist-sub">Join 1,400+ brands on the waitlist. Be the first to hire your AI marketing team.
+                </p>
+                <div class="waitlist-row">
+                    <div class="waitlist-field">
+                        <input type="text" placeholder="First name" required>
+                    </div>
+                    <div class="waitlist-field">
+                        <input type="text" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="waitlist-field">
+                    <input type="email" placeholder="Work email" required>
+                </div>
+                <div class="waitlist-field">
+                    <input type="text" placeholder="Company name">
+                </div>
+                <div class="waitlist-field">
+                    <select>
+                        <option value="" disabled selected>What describes you best?</option>
+                        <option value="brand">D2C Brand</option>
+                        <option value="agency">Marketing Agency</option>
+                        <option value="startup">Startup</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="waitlist-submit">Join the Waitlist →</button>
+            </form>
+
+            <div class="waitlist-success" id="waitlistSuccess">
+                <div class="waitlist-success-icon">
+                    <i data-lucide="check"></i>
+                </div>
+                <h3 class="waitlist-success-title">You're on the list! 🎉</h3>
+                <p class="waitlist-success-text">We'll reach out soon with your early access invite. Keep an eye on your
+                    inbox.</p>
+            </div>
+
+            <p class="waitlist-micro">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // --- Waitlist Modal Logic ---
+        function openWaitlist(e) {
+            if (e) e.preventDefault();
+            document.getElementById('waitlistOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWaitlist() {
+            const overlay = document.getElementById('waitlistOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form after close animation
+            setTimeout(() => {
+                document.getElementById('waitlistForm').classList.remove('hidden');
+                document.getElementById('waitlistForm').reset();
+                document.getElementById('waitlistSuccess').classList.remove('show');
+            }, 400);
+        }
+
+        function submitWaitlist(e) {
+            e.preventDefault();
+            document.getElementById('waitlistForm').classList.add('hidden');
+            document.getElementById('waitlistSuccess').classList.add('show');
+            // Re-create icons for the success check
+            lucide.createIcons();
+        }
+
+        // Close on backdrop click
+        document.getElementById('waitlistOverlay').addEventListener('click', function (e) {
+            if (e.target === this) closeWaitlist();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeWaitlist();
+        });
+    </script>
+</body>
+
+</html>

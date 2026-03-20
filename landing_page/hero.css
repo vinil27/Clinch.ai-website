@@ -1,0 +1,619 @@
+/* Hero Section Styles */
+
+:root {
+    --bg-warm-cream: #FDFBF7;
+    --text-deep-espresso: #3E2723;
+    --text-body: #5D4037;
+    --accent-rust-orange: #D35400;
+    --accent-sage-green: #556B2F;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-soft: 0 20px 40px rgba(62, 39, 35, 0.08);
+    /* Deep Espresso shadow hint */
+    --shadow-float: 0 30px 60px rgba(62, 39, 35, 0.12);
+}
+
+/* --- Layout & Spacing --- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+    overflow: hidden;
+    background-color: var(--bg-warm-cream);
+    /* Subtle mesh gradient for depth */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(211, 84, 0, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(85, 107, 47, 0.05) 0%, transparent 40%);
+}
+
+.hero-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 2;
+}
+
+/* --- Navigation (Preserved) --- */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    z-index: 10;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem 0.5rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--text-deep-espresso);
+    flex: 1;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-body);
+    font-weight: 600;
+    /* Increased weight for visibility */
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: var(--accent-rust-orange);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.btn-text {
+    text-decoration: none;
+    color: var(--text-deep-espresso);
+    font-weight: 600;
+}
+
+/* --- Hero Center Content --- */
+.hero-center {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    /* Reduced from 4rem */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    /* Reduced from 1.5rem */
+    color: var(--text-deep-espresso);
+    font-family: var(--font-heading, "Merriweather", serif);
+}
+
+.highlight-blue {
+    color: var(--accent-rust-orange);
+    /* Changed to Rust Orange as per new palette */
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-blue::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: -5px;
+    width: 105%;
+    height: 30%;
+    background-color: rgba(211, 84, 0, 0.15);
+    /* Rust Orange highlight */
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    /* Reduced from 1.25rem */
+    color: var(--text-body);
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    /* Reduced from 3rem */
+    line-height: 1.5;
+}
+
+/* --- Chat Stream Interface --- */
+.chat-stream-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Reduced from 2rem */
+    perspective: 1000px;
+    /* For 3D effects */
+}
+
+/* AI Row */
+.chat-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.ai-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFF, #F0F0F0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-rust-orange);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.chat-bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.ai-text {
+    font-size: 1.1rem;
+    color: var(--text-deep-espresso);
+    font-weight: 600;
+    /* Increased weight for visibility */
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+/* Creator Cards Scroll View */
+.creator-cards-scroll {
+    display: flex;
+    gap: 1.25rem;
+    /* Slightly reduced gap */
+    overflow-x: auto;
+    padding: 1rem 1rem 2rem 1rem;
+    /* Reduced bottom padding */
+    /* Padding for hover space and shadows */
+    margin: -1rem -1rem -2rem -1rem;
+    /* Adjusted negative margin */
+    /* Negative margin to offset padding */
+    scroll-behavior: smooth;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.creator-cards-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Creator Card - Antigravity Effect */
+.creator-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.25rem;
+    min-width: 260px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    /* Levitation Animation */
+    animation: float 6s ease-in-out infinite;
+}
+
+.creator-card:nth-child(2) {
+    animation-delay: 1s;
+    /* Offset float for variety */
+}
+
+/* 3D Tilt on Hover */
+.creator-card:hover {
+    transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+    box-shadow: var(--shadow-float);
+    z-index: 10;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-sage-green);
+    background: rgba(85, 107, 47, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.match-score {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-rust-orange);
+}
+
+.creator-info {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: left;
+}
+
+.creator-img-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #ddd;
+    /* Fallback */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.creator-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-deep-espresso);
+}
+
+.creator-info .handle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-body);
+}
+
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 0.75rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stat .label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat .value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+}
+
+.btn-negotiate {
+    background: transparent;
+    border: 1px solid var(--accent-rust-orange);
+    color: var(--accent-rust-orange);
+    padding: 0.6rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-negotiate:hover {
+    background: var(--accent-rust-orange);
+    color: white;
+}
+
+/* --- Input Pill Container --- */
+.input-pill-container {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5rem;
+    /* Reduced from 1rem */
+}
+
+/* Floating Filter Chips */
+.floating-chips {
+    position: absolute;
+    top: -26px;
+    /* Adjusted up slightly */
+    left: 20px;
+    display: flex;
+    gap: 0.5rem;
+    /* Reduced gap */
+    z-index: 5;
+    pointer-events: none;
+    /* Let clicks pass through to container if needed */
+}
+
+.chip {
+    background: var(--accent-rust-orange);
+    color: white;
+    padding: 4px 12px;
+    /* Slight reduction */
+    border-radius: 20px;
+    font-size: 0.7rem;
+    /* Slight reduction */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 8px 16px rgba(211, 84, 0, 0.25);
+    /* Float animation for chips */
+    animation: float 5s ease-in-out infinite reverse;
+    pointer-events: auto;
+    /* Re-enable clicks on chips */
+    transform-origin: center bottom;
+}
+
+.chip:nth-child(2) {
+    animation-delay: 0.5s;
+    background: var(--text-deep-espresso);
+    box-shadow: 0 8px 16px rgba(62, 39, 35, 0.25);
+}
+
+.input-pill {
+    background: #fff;
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(62, 39, 35, 0.08);
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.input-pill:hover,
+.input-pill:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(62, 39, 35, 0.12);
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-deep-espresso);
+    font-family: var(--font-body, "Inter", sans-serif);
+    background: transparent;
+}
+
+.chat-input::placeholder {
+    color: #aaa;
+}
+
+.btn-send-round {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-rust-orange);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(211, 84, 0, 0.3);
+}
+
+.btn-send-round:hover {
+    transform: scale(1.1);
+}
+
+/* --- Animations --- */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Social Proof Section --- */
+.social-proof {
+    position: relative;
+    padding: 3rem 2rem 4rem 2rem;
+    background-color: var(--bg-warm-cream);
+    /* Subtle deep-background blurred abstract shapes for depth */
+    background-image:
+        radial-gradient(ellipse 500px 400px at 25% 50%, rgba(211, 84, 0, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 350px at 80% 40%, rgba(85, 107, 47, 0.05) 0%, transparent 70%);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Frosted Glass Banner */
+.social-proof-banner {
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 28px;
+    padding: 2.5rem 3rem;
+    box-shadow:
+        0 25px 50px rgba(62, 39, 35, 0.07),
+        0 8px 20px rgba(62, 39, 35, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    /* Subtle float animation */
+    animation: float 8s ease-in-out infinite;
+}
+
+/* Headline */
+.social-proof-headline {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-deep-espresso);
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 650px;
+}
+
+/* Marquee Track — the overflow-hidden viewport */
+.marquee-track {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    /* Fade-out edges for a polished look */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Marquee Strip — the sliding row */
+.marquee-strip {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    flex-shrink: 0;
+    animation: marquee-scroll 25s linear infinite;
+}
+
+/* Icon Badge — pill-shaped frosted badge */
+.icon-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.4rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 100px;
+    box-shadow: 0 4px 14px rgba(62, 39, 35, 0.06);
+    white-space: nowrap;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(62, 39, 35, 0.1);
+}
+
+.icon-badge i,
+.icon-badge svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-deep-espresso);
+    stroke-width: 1.8;
+    flex-shrink: 0;
+}
+
+.icon-badge span {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-deep-espresso);
+    letter-spacing: 0.01em;
+}
+
+/* Marquee Scroll Keyframe */
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .creator-cards-scroll {
+        padding-bottom: 2rem;
+    }
+
+    .floating-chips {
+        top: -30px;
+        /* Adjust for smaller screens */
+    }
+
+    .social-proof {
+        padding: 2rem 1rem 3rem 1rem;
+    }
+
+    .social-proof-banner {
+        padding: 1.5rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .social-proof-headline {
+        font-size: 1.2rem;
+    }
+}

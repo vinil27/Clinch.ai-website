@@ -1,0 +1,635 @@
+/* =============================================
+   Section 3 — "The Problem" Section
+   ============================================= */
+
+/* --- Section Container --- */
+.problem-section {
+    position: relative;
+    padding: 7rem 2rem 5rem 2rem;
+    background-color: var(--bg-warm-cream);
+    /* Deep-background abstract shapes for depth */
+    background-image:
+        radial-gradient(ellipse 600px 500px at 15% 30%, rgba(211, 84, 0, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 450px at 85% 60%, rgba(85, 107, 47, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 350px 300px at 50% 80%, rgba(62, 39, 35, 0.025) 0%, transparent 65%);
+    overflow: hidden;
+}
+
+/* Smooth gradient connector to Section 4 */
+.problem-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-warm-cream) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Soft top-left light overlay */
+.problem-section::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: -10%;
+    width: 55%;
+    height: 55%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Split Grid Layout --- */
+.problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   LEFT COLUMN — Typography & Cards
+   ============================================= */
+.problem-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* Section Label */
+.section-label {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-deep-espresso);
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* Headline */
+.problem-headline {
+    font-family: var(--font-heading, "Merriweather", serif);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-deep-espresso);
+    margin: 0;
+}
+
+/* Problem Cards Stack */
+.problem-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Individual Problem Card — Frosted Glass */
+.problem-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 1.25rem 1.5rem;
+    box-shadow:
+        0 20px 40px rgba(62, 39, 35, 0.06),
+        0 6px 14px rgba(62, 39, 35, 0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.problem-card:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.problem-card:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+.problem-card:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow:
+        0 30px 60px rgba(62, 39, 35, 0.1),
+        0 10px 20px rgba(62, 39, 35, 0.06);
+}
+
+/* X Icon Circle */
+.problem-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(62, 39, 35, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-deep-espresso);
+    margin-top: 2px;
+}
+
+.problem-icon svg,
+.problem-icon i {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.2;
+}
+
+/* Card Text */
+.problem-card-text {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-body);
+    margin: 0;
+}
+
+.problem-card-text strong {
+    color: var(--text-deep-espresso);
+    font-weight: 700;
+}
+
+/* Sub-headline */
+.problem-subheadline {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-deep-espresso);
+    line-height: 1.55;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.problem-subheadline em {
+    font-style: normal;
+    color: var(--accent-rust-orange);
+    font-weight: 700;
+}
+
+/* Card Float Animation */
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* =============================================
+   RIGHT COLUMN — Chaos UI Graphic
+   ============================================= */
+.problem-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 640px;
+    padding: 3rem 2rem;
+}
+
+/* Central Phone / Dashboard Frame */
+.chaos-phone-frame {
+    position: relative;
+    width: 240px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 28px;
+    box-shadow:
+        0 30px 70px rgba(62, 39, 35, 0.12),
+        0 10px 25px rgba(62, 39, 35, 0.06);
+    overflow: hidden;
+    z-index: 2;
+    animation: frameFloat 7s ease-in-out infinite;
+}
+
+/* Phone status bar */
+.phone-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px 8px 20px;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-deep-espresso);
+    opacity: 0.5;
+}
+
+/* Phone inner content — inbox mess */
+.phone-inbox {
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.phone-inbox-header {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inbox-unread-badge {
+    background: #C0392B;
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+/* Mini inbox message rows inside the phone */
+.inbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.inbox-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.inbox-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.inbox-text .inbox-name {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-deep-espresso);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inbox-text .inbox-preview {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.58rem;
+    color: var(--text-body);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.7;
+}
+
+.inbox-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #C0392B;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes frameFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+}
+
+/* =============================================
+   FLOATING CLUTTER ELEMENTS
+   ============================================= */
+
+/* --- DM Bubbles --- */
+.chaos-dm {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px 16px 16px 4px;
+    padding: 8px 12px;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.65rem;
+    color: var(--text-body);
+    box-shadow: 0 10px 24px rgba(62, 39, 35, 0.08);
+    z-index: 3;
+    white-space: nowrap;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Red notification badge on DM */
+.chaos-dm .notif-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #C0392B;
+    color: white;
+    font-size: 0.5rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.4);
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* DM positions — arranged in 4 corners around phone */
+/* Top-right corner */
+.chaos-dm-1 {
+    top: 3%;
+    right: 6%;
+    animation: gentleFloat1 6s ease-in-out infinite;
+}
+
+/* Bottom-left */
+.chaos-dm-2 {
+    bottom: 10%;
+    left: 8%;
+    border-radius: 16px 16px 4px 16px;
+    animation: gentleFloat2 7s ease-in-out infinite;
+}
+
+/* Left side, upper-middle */
+.chaos-dm-3 {
+    top: 34%;
+    left: 2%;
+    border-radius: 4px 16px 16px 16px;
+    animation: gentleFloat3 6.5s ease-in-out infinite;
+}
+
+/* Right side, lower-middle */
+.chaos-dm-4 {
+    bottom: 30%;
+    right: 5%;
+    animation: gentleFloat4 7.5s ease-in-out infinite;
+}
+
+/* --- Spreadsheet Fragments --- */
+.chaos-spreadsheet {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-family: "Courier New", monospace;
+    font-size: 0.6rem;
+    color: var(--text-body);
+    box-shadow: 0 10px 24px rgba(62, 39, 35, 0.07);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.spreadsheet-row {
+    display: flex;
+    gap: 1px;
+}
+
+.spreadsheet-cell {
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(62, 39, 35, 0.08);
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 0.55rem;
+}
+
+.spreadsheet-cell.error {
+    color: #C0392B;
+    font-weight: 700;
+}
+
+/* Top-left corner */
+.chaos-spreadsheet-1 {
+    top: 0;
+    left: 0;
+    transform: rotate(-2deg);
+    animation: gentleFloat3 8s ease-in-out infinite;
+}
+
+/* Bottom-right corner */
+.chaos-spreadsheet-2 {
+    bottom: 5%;
+    right: 0;
+    transform: rotate(1.5deg);
+    animation: gentleFloat1 7s ease-in-out infinite;
+}
+
+/* --- Error / Alert Icons --- */
+.chaos-alert {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(192, 57, 43, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C0392B;
+    z-index: 4;
+    box-shadow: 0 6px 16px rgba(192, 57, 43, 0.15);
+}
+
+.chaos-alert svg,
+.chaos-alert i {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.5;
+}
+
+/* Positioned in gaps between floating cards */
+.chaos-alert-1 {
+    top: 15%;
+    right: 8%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.chaos-alert-2 {
+    bottom: 45%;
+    left: 3%;
+    animation: pulse 2.5s ease-in-out infinite 0.5s;
+}
+
+.chaos-alert-3 {
+    top: 52%;
+    right: 3%;
+    animation: pulse 3.5s ease-in-out infinite 1s;
+}
+
+/* --- Connection Lines (SVG) — flowing between cards and phone --- */
+.chaos-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+.chaos-lines path {
+    fill: none;
+    stroke: var(--text-deep-espresso);
+    stroke-width: 1.2;
+    stroke-dasharray: 6 4;
+    animation: dashFlow 8s linear infinite;
+}
+
+@keyframes dashFlow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -60;
+    }
+}
+
+/* --- Gentle Float Animations (small amplitude to prevent overlap) --- */
+@keyframes gentleFloat1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(2px, -5px);
+    }
+}
+
+@keyframes gentleFloat2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-3px, -4px);
+    }
+}
+
+@keyframes gentleFloat3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(3px, -6px);
+    }
+}
+
+@keyframes gentleFloat4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-2px, -5px);
+    }
+}
+
+/* Pulse for error dots / badges */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.65;
+        transform: scale(1.1);
+    }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .problem-right {
+        min-height: 500px;
+    }
+
+    .problem-headline {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .problem-section {
+        padding: 4rem 1.25rem 5rem 1.25rem;
+    }
+
+    .problem-headline {
+        font-size: 1.7rem;
+    }
+
+    .chaos-phone-frame {
+        width: 200px;
+        height: 320px;
+    }
+
+    .chaos-dm {
+        font-size: 0.55rem;
+        padding: 6px 10px;
+        max-width: 140px;
+    }
+
+    .chaos-spreadsheet {
+        font-size: 0.5rem;
+        padding: 6px 8px;
+    }
+
+    .spreadsheet-cell {
+        font-size: 0.45rem;
+        padding: 2px 5px;
+    }
+}
