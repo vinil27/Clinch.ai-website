@@ -99,6 +99,37 @@
     font-weight: 600;
 }
 
+/* --- Primary CTA Button (Join Waitlist) --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--text-deep-espresso);
+    color: #FDFBF7;
+    box-shadow: 0 4px 14px rgba(62, 39, 35, 0.25);
+}
+
+.btn-primary:hover {
+    background: #2c1a17;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(62, 39, 35, 0.35);
+    color: #FDFBF7;
+    text-decoration: none;
+}
+
 /* --- Hero Center Content --- */
 .hero-center {
     text-align: center;

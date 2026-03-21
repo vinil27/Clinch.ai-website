@@ -1,0 +1,67 @@
+/* ==============================================
+   Style Guide — Clinch.ai Global Styles
+   ============================================== */
+
+/* Font Variables */
+:root {
+    --font-heading: "Merriweather", serif;
+    --font-body: "Inter", sans-serif;
+    --color-primary-light: #FDFBF7;
+    --color-primary-dark: #3E2723;
+    --color-text-body: #5D4037;
+    --color-accent: #D35400;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-body);
+    background: var(--color-primary-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Button Base */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: #3E2723;
+    color: #FDFBF7;
+    box-shadow: 0 4px 14px rgba(62, 39, 35, 0.25);
+}
+
+.btn-primary:hover {
+    background: #2c1a17;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(62, 39, 35, 0.35);
+    color: #FDFBF7;
+    text-decoration: none;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
