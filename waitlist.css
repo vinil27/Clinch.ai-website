@@ -28,6 +28,8 @@
     position: relative;
     width: 94%;
     max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
     background: rgba(253, 251, 247, 0.92);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -319,4 +321,63 @@
         width: 22px;
         height: 22px;
     }
+}
+
+.waitlist-social-proof {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-bottom: 1rem;
+justify-content: center;
+}
+.waitlist-avatars {
+display: flex;
+}
+.waitlist-avatar {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-family: var(--font-body, "Inter", sans-serif);
+font-size: 0.7rem;
+font-weight: 700;
+border: 2px solid white;
+margin-left: -8px;
+box-shadow: 0 2px 8px rgba(62, 39, 35, 0.15);
+}
+.waitlist-avatar:first-child {
+margin-left: 0;
+}
+.waitlist-proof-text {
+font-family: var(--font-body, "Inter", sans-serif);
+font-size: 0.78rem;
+color: var(--text-body, #5D4037);
+opacity: 0.7;
+}
+
+.waitlist-share-buttons {
+display: flex;
+gap: 0.75rem;
+margin-top: 0.75rem;
+}
+.waitlist-share-btn {
+padding: 0.6rem 1.25rem;
+border: 1.5px solid rgba(62, 39, 35, 0.15);
+border-radius: 10px;
+background: transparent;
+font-family: var(--font-body, "Inter", sans-serif);
+font-size: 0.82rem;
+font-weight: 600;
+color: var(--text-deep-espresso, #3E2723);
+text-decoration: none;
+transition: all 0.25s ease;
+cursor: pointer;
+}
+.waitlist-share-btn:hover {
+background: rgba(62, 39, 35, 0.05);
+border-color: rgba(62, 39, 35, 0.3);
+transform: translateY(-2px);
 }

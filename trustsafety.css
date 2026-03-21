@@ -137,17 +137,15 @@
     width: 68px;
     height: 68px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: linear-gradient(135deg, #556B2F, #6b8e3a);
+    border: 2px solid rgba(85, 107, 47, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-sage-green);
+    color: #FFFFFF;
     box-shadow:
-        0 14px 35px rgba(85, 107, 47, 0.18),
-        0 0 20px rgba(85, 107, 47, 0.08);
+        0 14px 35px rgba(85, 107, 47, 0.25),
+        0 0 20px rgba(85, 107, 47, 0.12);
     position: relative;
     /* Float above the card surface */
     margin-top: -1rem;
@@ -164,21 +162,22 @@
 
 .ts-emblem svg,
 .ts-emblem i {
-    width: 28px;
-    height: 28px;
-    stroke-width: 1.8;
+    width: 30px;
+    height: 30px;
+    stroke-width: 2;
+    color: #FFFFFF;
 }
 
 /* Sage Green glow ring behind the emblem */
 .ts-emblem::after {
     content: '';
     position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
+    top: -7px;
+    left: -7px;
+    right: -7px;
+    bottom: -7px;
     border-radius: 50%;
-    border: 1.5px solid rgba(85, 107, 47, 0.2);
+    border: 2px solid rgba(85, 107, 47, 0.25);
     animation: tsGlowPulse 3.5s ease-in-out infinite;
 }
 

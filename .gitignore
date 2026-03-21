@@ -1,3 +1,9 @@
 .DS_Store
 node_modules/
 .env
+
+# Debug / test artifacts
+test_*.js
+tmp_*.js
+*_debug*.png
+*.screenshot.png

@@ -4,22 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cluncy.ai - Build Stunning Websites</title>
+    <title>Clinch.ai — AI-Powered Influencer Marketing Platform</title>
+    <meta name="description" content="Hire an AI to find, negotiate, and manage your influencer campaigns. The all-in-one platform for brands and agencies.">
+    <meta property="og:title" content="Clinch.ai — AI-Powered Influencer Marketing">
+    <meta property="og:description" content="Hire an AI to find, negotiate, and manage your influencer campaigns. Join 1,400+ brands on the waitlist.">
+    <meta property="og:image" content="images/og-preview.png">
+    <meta property="og:url" content="https://clinch.ai">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clinch.ai — AI-Powered Influencer Marketing">
+    <meta name="twitter:description" content="Hire an AI to find, negotiate, and manage your influencer campaigns.">
+    <meta name="twitter:image" content="images/og-preview.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Reuse variables from the Style Guide -->
-    <link rel="stylesheet" href="style_guide/styles.css">
-    <link rel="stylesheet" href="hero.css">
-    <link rel="stylesheet" href="problem.css">
-    <link rel="stylesheet" href="howitworks.css">
-    <link rel="stylesheet" href="trustsafety.css">
-    <link rel="stylesheet" href="testimonials.css">
-    <link rel="stylesheet" href="waitlist.css">
-    <link rel="stylesheet" href="cta-footer.css">
+    <link rel="stylesheet" href="style_guide/styles.css?v=1.2">
+    <link rel="stylesheet" href="hero.css?v=1.2">
+    <link rel="stylesheet" href="problem.css?v=1.2">
+    <link rel="stylesheet" href="howitworks.css?v=1.2">
+    <link rel="stylesheet" href="trustsafety.css?v=1.2">
+    <link rel="stylesheet" href="waitlist.css?v=1.2">
+    <link rel="stylesheet" href="cta-footer.css?v=1.2">
+    <!-- Testimonials/Stats Grid — inlined to avoid caching issues -->
+    <style>
+/* ===================================================
+   TESTIMONIALS SECTION (Stats Grid)
+   =================================================== */
+
+.testi-section {
+    padding: 6rem 4rem;
+    background: var(--color-primary-light);
+    overflow: hidden;
+}
+
+/* ---------- Header Row ---------- */
+.testi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    gap: 3rem;
+}
+
+.testi-headline {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary-dark);
+    line-height: 1.15;
+    max-width: 500px;
+}
+
+.testi-header-right {
+    max-width: 340px;
+    text-align: left;
+}
+
+.testi-header-right p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-body);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+/* ---------- Stats Grid ---------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(62, 39, 35, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 20px 50px rgba(62, 39, 35, 0.08), 0 4px 12px rgba(62, 39, 35, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px rgba(62, 39, 35, 0.1);
+}
+
+.stat-card--accent {
+    background: rgba(196, 98, 45, 0.06);
+    border: 1px solid rgba(196, 98, 45, 0.12);
+}
+
+.stat-card--dark {
+    background: #3E2723;
+    border: 1.5px solid rgba(93, 64, 55, 0.5);
+    box-shadow: 0 20px 50px rgba(62, 39, 35, 0.15), 0 4px 12px rgba(62, 39, 35, 0.08);
+}
+
+.stat-number {
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #3E2723;
+    line-height: 1;
+}
+
+.stat-number--light {
+    color: #FDFBF7;
+}
+
+.stat-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #5D4037;
+    line-height: 1.6;
+}
+
+.stat-description--light {
+    color: rgba(253, 251, 247, 0.7);
+}
+
+.stat-cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #D35400;
+    text-decoration: none;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    transition: opacity 0.2s ease;
+}
+
+.stat-cta:hover {
+    opacity: 0.8;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .testi-section { padding: 4rem 2rem; }
+    .testi-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .testi-headline { font-size: 2.25rem; }
+}
+
+@media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .testi-section { padding: 3rem 1.25rem; }
+    .testi-headline { font-size: 1.75rem; }
+}
+
+@media (max-width: 550px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-number { font-size: 2.5rem; }
+}
+    </style>
 </head>
 
 <body>
@@ -32,12 +187,31 @@
         <nav class="main-nav">
             <a href="#how-it-works">Features</a>
             <a href="#trust-safety">Safety</a>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#testimonials">Why Clinch</a>
         </nav>
         <div class="header-actions">
             <a href="#" class="btn btn-primary" onclick="openWaitlist(event)">Join Waitlist</a>
         </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </header>
+
+    <!-- Mobile Nav Panel -->
+    <div class="mobile-nav-panel">
+        <div class="mobile-nav-header">
+            <img src="images/logo.png" alt="Clinch.ai Logo" style="height: 80px; width: auto;">
+            <button class="mobile-menu-close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#how-it-works">Features</a>
+            <a href="#trust-safety">Safety</a>
+            <a href="#testimonials">Why Clinch</a>
+            <a href="#" class="btn btn-primary mobile-waitlist-btn" onclick="openWaitlist(event)">Join Waitlist</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <main class="hero-section">
@@ -45,19 +219,28 @@
             <!-- Central Content -->
             <div class="hero-center">
                 <h1 class="hero-title">
-                    Hire an AI to Negotiate <br>
+                    Hire an AI to Negotiate <br class="hero-br">
                     Your <span class="highlight-blue">Influencer Deals</span>
                 </h1>
-                <p class="hero-subtitle">Stop manually scrolling Social Media and chasing campaign. Clinch is the first
-                    AI Agent that finds Nano & Micro - influencers, verifies their "vibe," negotiates rates and manages
-                    campaign for you—24/7.</p>
+                <p class="hero-subtitle">Stop scrolling Instagram for creators, chasing DMs, and tracking payouts in spreadsheets. Let AI handle your entire influencer workflow.</p>
+
+                <div class="hero-social-proof">
+                    <span class="hero-proof-dot"></span>
+                    <span class="hero-proof-text">
+                        1,400+ brands on the waitlist
+                    </span>
+                    <span class="hero-proof-divider">•</span>
+                    <span class="hero-proof-text">
+                        Launching Q2 2026
+                    </span>
+                </div>
 
                 <!-- Chat Stream Interface -->
                 <div class="chat-stream-container">
                     <!-- AI Message (Creator Profiles) -->
                     <div class="chat-row ai-row">
                         <div class="ai-avatar">
-                            <i data-lucide="sparkles"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
                         </div>
                         <div class="chat-bubble ai-bubble">
                             <p class="ai-text">Here are a few verified influencers matching your campaign:</p>
@@ -68,7 +251,7 @@
                                 <div class="creator-card">
                                     <div class="card-header">
                                         <div class="verified-badge">
-                                            <i data-lucide="check-circle" size="14"></i> Verified
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Verified
                                         </div>
                                         <span class="match-score">98% Match</span>
                                     </div>
@@ -96,7 +279,7 @@
                                 <div class="creator-card">
                                     <div class="card-header">
                                         <div class="verified-badge">
-                                            <i data-lucide="check-circle" size="14"></i> Verified
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Verified
                                         </div>
                                         <span class="match-score">92% Match</span>
                                     </div>
@@ -129,18 +312,18 @@
                         <div class="floating-chips">
                             <div class="chip">
                                 <span>Platform: Instagram</span>
-                                <i data-lucide="x" size="12"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                             </div>
                             <div class="chip">
                                 <span>Budget: < ₹50k</span>
-                                        <i data-lucide="x" size="12"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                             </div>
                         </div>
 
                         <div class="input-pill">
                             <input type="text" class="chat-input" placeholder="Find fashion influencers in Mumbai...">
                             <button class="btn-send-round">
-                                <i data-lucide="arrow-up"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
                             </button>
                         </div>
                     </div>
@@ -213,7 +396,7 @@
                         <!-- Card 1 -->
                         <div class="problem-card">
                             <div class="problem-icon">
-                                <i data-lucide="x-circle"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                             </div>
                             <p class="problem-card-text">
                                 <strong>The Endless Scroll:</strong> Wasting hours on Instagram and Youtube trying to
@@ -224,7 +407,7 @@
                         <!-- Card 2 -->
                         <div class="problem-card">
                             <div class="problem-icon">
-                                <i data-lucide="x-circle"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                             </div>
                             <p class="problem-card-text">
                                 <strong>The Inbox Chaos:</strong> Tracking negotiations across email, DMs, and messy
@@ -235,7 +418,7 @@
                         <!-- Card 3 -->
                         <div class="problem-card">
                             <div class="problem-icon">
-                                <i data-lucide="x-circle"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                             </div>
                             <p class="problem-card-text">
                                 <strong>The Risk:</strong> Guessing if an influencer has fake followers or bots.
@@ -401,6 +584,40 @@
                 <h2 class="hiw-headline">Meet Your New AI Marketing Team.</h2>
             </div>
 
+            <div class="hiw-steps-strip">
+                <div class="hiw-step">
+                    <div class="hiw-step-number">①</div>
+                    <div class="hiw-step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <span class="hiw-step-label">Discover</span>
+                </div>
+                <div class="hiw-step-connector"></div>
+                <div class="hiw-step">
+                    <div class="hiw-step-number">②</div>
+                    <div class="hiw-step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    </div>
+                    <span class="hiw-step-label">Outreach</span>
+                </div>
+                <div class="hiw-step-connector"></div>
+                <div class="hiw-step">
+                    <div class="hiw-step-number">③</div>
+                    <div class="hiw-step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                    </div>
+                    <span class="hiw-step-label">Negotiate</span>
+                </div>
+                <div class="hiw-step-connector"></div>
+                <div class="hiw-step">
+                    <div class="hiw-step-number">④</div>
+                    <div class="hiw-step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <span class="hiw-step-label">Track & Pay</span>
+                </div>
+            </div>
+
             <!-- 2×3 Feature Card Grid -->
             <div class="hiw-grid">
 
@@ -501,18 +718,18 @@
                             <!-- Influencer Bubble -->
                             <div class="closer-bubble closer-bubble--influencer">
                                 <div class="closer-bubble-label">Influencer</div>
-                                <div class="closer-bubble-text">"My rate is $350 for 2 reels."</div>
+                                <div class="closer-bubble-text">"My rate is ₹8,500 for 2 reels."</div>
                             </div>
                             <!-- AI Counter -->
                             <div class="closer-bubble closer-bubble--ai">
                                 <div class="closer-bubble-label">Clinch AI</div>
-                                <div class="closer-bubble-text">"$250 + performance bonus?"</div>
+                                <div class="closer-bubble-text">"₹6,500 + performance bonus?"</div>
                             </div>
                             <!-- Budget Slider -->
                             <div class="closer-slider-wrap">
                                 <div class="closer-slider-header">
                                     <span class="closer-slider-label">Budget Tracker</span>
-                                    <span class="closer-slider-value">$300 / $400</span>
+                                    <span class="closer-slider-value">₹8,000 / ₹10,000</span>
                                 </div>
                                 <div class="closer-slider-track">
                                     <div class="closer-slider-fill"></div>
@@ -523,7 +740,7 @@
                                 <div class="closer-success-icon">
                                     <i data-lucide="check"></i>
                                 </div>
-                                <span class="closer-success-text">Deal Locked: $300</span>
+                                <span class="closer-success-text">Deal Locked: ₹8,000</span>
                             </div>
                         </div>
                     </div>
@@ -641,34 +858,65 @@
                 <!-- ══════════ CARD 6 — PAYMENTS ══════════ -->
                 <div class="hiw-card">
                     <div class="hiw-card-text">
-                        <h3>Escrow & Automated Payouts.</h3>
-                        <p>Your budget is held in secure Escrow and only released when the AI verifies the deliverables.
-                            No more chasing invoices.</p>
+                        <h3>Invoice & Payout Tracking.</h3>
+                        <p>Manage influencer invoices, track deliverable milestones, and monitor all payouts — right from your dashboard. No spreadsheets, no chasing payments.</p>
                     </div>
                     <div class="hiw-card-mockup">
                         <div class="payments-mockup">
-                            <!-- Transaction Status -->
-                            <div class="payments-transaction">
-                                <div class="payments-status-label">Transaction Status</div>
-                                <div class="payments-progress-bar-wrap">
-                                    <div class="payments-progress-bar-fill"></div>
+                            <!-- Invoice Header -->
+                            <div class="invoice-header">
+                                <div class="invoice-id">
+                                    <span class="invoice-hash">#INV-0247</span>
+                                    <span class="invoice-status-badge">Completed</span>
                                 </div>
-                                <div class="payments-verified-label">Deliverables Verified ✓</div>
+                                <div class="invoice-meta">
+                                    @priyastyle • Summer Campaign
+                                </div>
                             </div>
-                            <!-- Vault + Released -->
-                            <div class="payments-bottom">
-                                <div class="payments-vault">
-                                    <div class="vault-icon-wrap">
-                                        <span class="vault-lock"><i data-lucide="lock-open"></i></span>
+                        
+                            <!-- Milestone Tracker -->
+                            <div class="milestone-tracker">
+                                <div class="milestone-item milestone-done">
+                                    <div class="milestone-check">
+                                        <i data-lucide="check-circle-2"></i>
                                     </div>
-                                    <span class="vault-label">Escrow Vault</span>
+                                    <span class="milestone-label">Brief Accepted</span>
+                                    <span class="milestone-status">Done</span>
                                 </div>
-                                <div class="payments-released">
-                                    <div class="released-icon">
+                                <div class="milestone-item milestone-done">
+                                    <div class="milestone-check">
+                                        <i data-lucide="check-circle-2"></i>
+                                    </div>
+                                    <span class="milestone-label">Draft Posted</span>
+                                    <span class="milestone-status">Done</span>
+                                </div>
+                                <div class="milestone-item milestone-done">
+                                    <div class="milestone-check">
+                                        <i data-lucide="check-circle-2"></i>
+                                    </div>
+                                    <span class="milestone-label">Story Live</span>
+                                    <span class="milestone-status">Done</span>
+                                </div>
+                                <div class="milestone-item milestone-active">
+                                    <div class="milestone-check milestone-check--active">
+                                        <i data-lucide="circle-dot"></i>
+                                    </div>
+                                    <span class="milestone-label">Payment Sent</span>
+                                    <span class="milestone-amount">₹8,500</span>
+                                </div>
+                            </div>
+                        
+                            <!-- Bottom Summary Cards -->
+                            <div class="invoice-summary">
+                                <div class="summary-card summary-card--amount">
+                                    <span class="summary-value">₹8,500</span>
+                                    <span class="summary-label">Total Paid</span>
+                                </div>
+                                <div class="summary-card summary-card--status">
+                                    <div class="summary-check-icon">
                                         <i data-lucide="check"></i>
                                     </div>
-                                    <span class="released-text">Payment Released</span>
-                                    <span class="released-amount">$300</span>
+                                    <span class="summary-label">All Deliverables Completed</span>
                                 </div>
                             </div>
                         </div>
@@ -693,7 +941,7 @@
                     <!-- Card 1 — 100% White Hat -->
                     <div class="ts-card">
                         <div class="ts-emblem">
-                            <i data-lucide="shield"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <h3>100% White Hat.</h3>
                         <p>Every action uses fully compliant platform APIs. No grey-area scraping, no risky
@@ -703,17 +951,20 @@
                     <!-- Card 2 — Secure Escrow -->
                     <div class="ts-card">
                         <div class="ts-emblem">
-                            <i data-lucide="lock"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v1.5"/><path d="M12 6v1.5"/></svg>
                         </div>
-                        <h3>Secure Escrow.</h3>
-                        <p>Payments are held in secure escrow via Stripe Connect. Funds only release when deliverables
-                            are verified—giving you full control over every rupee.</p>
+                        <h3>Invoice & Payout Tracking.</h3>
+                        <p>Track every influencer payment against 
+                        deliverable milestones. Monitor invoices, 
+                        mark completions, and keep a clear audit 
+                        trail of every rupee spent — all from 
+                        one dashboard.</p>
                     </div>
 
                     <!-- Card 3 — Verified Audiences -->
                     <div class="ts-card">
                         <div class="ts-emblem">
-                            <i data-lucide="check-circle"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
                         <h3>Verified Audiences.</h3>
                         <p>Our AI scans every creator's audience for fake followers and bot engagement before you spend
@@ -726,78 +977,65 @@
 
         <!-- Testimonials Section -->
         <section class="testi-section" id="testimonials">
-
-            <!-- Header Row -->
             <div class="testi-header">
-                <h2 class="testi-headline">Trusted by Creators,<br>Founders, and<br>Businesses</h2>
+                <h2 class="testi-headline">
+                    Why Brands<br>Need This.<br>Now.
+                </h2>
                 <div class="testi-header-right">
-                    <p>See how brands and agencies are scaling influencer marketing faster with the power of AI, without
-                        the manual grind.</p>
-                    <a href="#" class="testi-see-all">See all</a>
+                    <p>The influencer marketing industry is 
+                    broken. Brands waste time, money, and 
+                    energy on manual processes that AI can 
+                    handle in minutes.</p>
                 </div>
             </div>
 
-            <!-- Bento Grid -->
-            <div class="testi-grid">
-
-                <!-- Row 1, Card 1: Text testimonial -->
-                <div class="testi-card testi-card--text">
-                    <img src="assets/testimonials/avatar_priya.png" alt="Priya Sharma" class="testi-avatar">
-                    <p class="testi-quote">"We no longer rely on manual outreach for every campaign. Cluncy handles it
-                        beautifully."</p>
-                    <div class="testi-author">
-                        <p class="testi-name">Priya Sharma</p>
-                        <p class="testi-role">Head of Marketing, StyleCo</p>
+            <div class="stats-grid">
+                <!-- Stat Card 1 -->
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-description">
+                        of brands still manage influencer 
+                        campaigns manually with spreadsheets 
+                        and DMs
                     </div>
                 </div>
 
-                <!-- Row 1, Card 2: Dark stat card -->
-                <div class="testi-card testi-card--stat">
-                    <p class="testi-stat-number">10,000+</p>
-                    <p class="testi-stat-desc">Creator deals negotiated and closed using AI by brands and agencies
-                        worldwide every month</p>
-                </div>
-
-                <!-- Row 1, Card 3: Text testimonial -->
-                <div class="testi-card testi-card--text">
-                    <img src="assets/testimonials/avatar_sarah.png" alt="Sarah Chen" class="testi-avatar">
-                    <p class="testi-quote">"Building our influencer workflow with Cluncy was fast, simple, and
-                        surprisingly powerful."</p>
-                    <div class="testi-author">
-                        <p class="testi-name">Sarah Chen</p>
-                        <p class="testi-role">Startup Founder, BeautyAI</p>
+                <!-- Stat Card 2 -->
+                <div class="stat-card stat-card--accent">
+                    <div class="stat-number">₹2Cr+</div>
+                    <div class="stat-description">
+                        wasted annually by Indian brands 
+                        on influencers with fake followers 
+                        and inflated metrics
                     </div>
                 </div>
 
-                <!-- Row 2, Card 4: Photo card -->
-                <div class="testi-card testi-card--photo"
-                    style="background-image: url('assets/testimonials/photo_meera.png')">
-                    <div class="testi-photo-overlay">
-                        <p class="testi-name">Meera Kapoor</p>
-                        <p class="testi-role">Growth Manager, InfluenceHub</p>
+                <!-- Stat Card 3 -->
+                <div class="stat-card">
+                    <div class="stat-number">40+ hrs</div>
+                    <div class="stat-description">
+                        spent per campaign on discovery, 
+                        outreach, negotiation, and tracking 
+                        — time your team could spend on 
+                        strategy
                     </div>
                 </div>
 
-                <!-- Row 2, Card 5: Text testimonial (alt) -->
-                <div class="testi-card testi-card--text testi-card--text-alt">
-                    <img src="assets/testimonials/avatar_rohan.png" alt="Rohan Mehta" class="testi-avatar">
-                    <p class="testi-quote">"No manual negotiation needed. The AI handled rate discussions, contracts,
-                        and follow-ups beautifully."</p>
-                    <div class="testi-author">
-                        <p class="testi-name">Rohan Mehta</p>
-                        <p class="testi-role">Agency Director, BrandWave</p>
+                <!-- Stat Card 4 -->
+                <div class="stat-card stat-card--dark">
+                    <div class="stat-number stat-number--light">
+                        3 min
                     </div>
-                </div>
-
-                <!-- Row 2, Card 6: Photo card -->
-                <div class="testi-card testi-card--photo"
-                    style="background-image: url('assets/testimonials/photo_ananya.png')">
-                    <div class="testi-photo-overlay">
-                        <p class="testi-name">Ananya Reddy</p>
-                        <p class="testi-role">Head of Partnerships, NovaBrands</p>
+                    <div class="stat-description stat-description--light">
+                        is all Clinch.ai needs to find, 
+                        verify, and draft outreach to 
+                        your perfect influencer match
                     </div>
+                    <a href="#" class="stat-cta" 
+                       onclick="openWaitlist(event)">
+                        Get Early Access →
+                    </a>
                 </div>
-
             </div>
         </section>
 
@@ -819,8 +1057,12 @@
                 <div class="footer-social">
 
                     <a href="#" aria-label="X (Twitter)" style="font-weight:700;font-size:14px;">𝕏</a>
-                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                    <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                    </a>
                 </div>
             </div>
 
@@ -837,7 +1079,7 @@
                 <h4>Product</h4>
                 <a href="#how-it-works">Features</a>
                 <a href="#trust-safety">Safety</a>
-                <a href="#testimonials">Testimonials</a>
+                <a href="#testimonials">Why Clinch</a>
             </div>
 
             <!-- Company -->
@@ -856,12 +1098,12 @@
 
             <!-- Subscription -->
             <div class="footer-subscribe">
-                <h4>Subscription</h4>
-                <p>Subscribe to our newsletter for the latest updates, tips, and special offers</p>
-                <form class="footer-subscribe-form" onsubmit="return false;">
-                    <input type="email" placeholder="Enter your email">
-                    <button type="submit">Subscribe Now <i data-lucide="arrow-up-right"></i></button>
-                </form>
+                <h4>Get Early Access</h4>
+                <p>Be the first to know when we launch.</p>
+                <a href="#" class="btn btn-primary footer-waitlist-btn" 
+                   onclick="openWaitlist(event)">
+                    Join Waitlist →
+                </a>
             </div>
 
         </div>
@@ -873,7 +1115,7 @@
     <div class="waitlist-overlay" id="waitlistOverlay">
         <div class="waitlist-card">
             <button class="waitlist-close" onclick="closeWaitlist()">
-                <i data-lucide="x"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
 
             <div class="waitlist-icon">
@@ -882,8 +1124,28 @@
 
             <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
                 <h2 class="waitlist-title">Get Early Access</h2>
-                <p class="waitlist-sub">Join 1,400+ brands on the waitlist. Be the first to hire your AI marketing team.
-                </p>
+                <p class="waitlist-sub">Join 1,400+ brands already on the
+                waitlist. Early access members get 3 months
+                free on launch.</p>
+                <div class="waitlist-social-proof">
+                    <div class="waitlist-avatars">
+                        <div class="waitlist-avatar" 
+                             style="background: linear-gradient(135deg, #C4622D, #D35400);">
+                             M</div>
+                        <div class="waitlist-avatar" 
+                             style="background: linear-gradient(135deg, #556B2F, #6b8e3a);">
+                             R</div>
+                        <div class="waitlist-avatar" 
+                             style="background: linear-gradient(135deg, #3E2723, #5D4037);">
+                             A</div>
+                        <div class="waitlist-avatar" 
+                             style="background: linear-gradient(135deg, #D35400, #e67e22);">
+                             S</div>
+                    </div>
+                    <span class="waitlist-proof-text">
+                        Meera, Rohan, and 1,398 others are waiting
+                    </span>
+                </div>
                 <div class="waitlist-row">
                     <div class="waitlist-field">
                         <input type="text" placeholder="First name" required>
@@ -908,16 +1170,33 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <button type="submit" class="waitlist-submit">Join the Waitlist →</button>
+                <button type="submit" class="waitlist-submit">Claim Your Early Access →</button>
             </form>
 
             <div class="waitlist-success" id="waitlistSuccess">
                 <div class="waitlist-success-icon">
-                    <i data-lucide="check"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
-                <h3 class="waitlist-success-title">You're on the list! 🎉</h3>
-                <p class="waitlist-success-text">We'll reach out soon with your early access invite. Keep an eye on your
-                    inbox.</p>
+                <h3 class="waitlist-success-title">
+                    You're in! 🎉
+                </h3>
+                <p class="waitlist-success-text">
+                    You're #1,401 on the waitlist. We'll send 
+                    your early access invite soon. Share with 
+                    a friend to move up the list.
+                </p>
+                <div class="waitlist-share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text=Just%20joined%20the%20%40ClinchAI%20waitlist%20%E2%80%94%20AI-powered%20influencer%20marketing%20is%20coming!%20%F0%9F%9A%80%20https%3A%2F%2Fclinch.ai" 
+                       target="_blank" 
+                       class="waitlist-share-btn">
+                        Share on 𝕏
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://clinch.ai" 
+                       target="_blank" 
+                       class="waitlist-share-btn">
+                        Share on LinkedIn
+                    </a>
+                </div>
             </div>
 
             <p class="waitlist-micro">No spam, ever. Unsubscribe anytime.</p>
@@ -925,11 +1204,56 @@
     </div>
 
     <script>
+        // Initialize Lucide icons FIRST (before any other scripts that might error)
         lucide.createIcons();
+
+        // Supabase init wrapped in try-catch to prevent blocking other JS
+        let supabaseClient;
+        try {
+            const supabaseUrl = 'https://ycxmuutmvicvkcqqrcql.supabase.co';
+            const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljeG11dXRtdmljdmtjcXFyY3FsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTUyODAsImV4cCI6MjA4OTU5MTI4MH0.zkRAJ06l2KZG1jbr_ck_JSi63YLlVYSlEenaG9C5YBU';
+            supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        } catch(e) {
+            console.warn('Supabase not configured:', e.message);
+        }
+
+        // Sticky header on scroll
+        const siteHeader = document.querySelector('.site-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                siteHeader.classList.add('site-header--scrolled');
+            } else {
+                siteHeader.classList.remove('site-header--scrolled');
+            }
+        }, { passive: true });
+
+        // Mobile menu logic
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNavPanel = document.querySelector('.mobile-nav-panel');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileNavLinksEl = document.querySelectorAll('.mobile-nav-links a');
+
+        menuToggle.addEventListener('click', () => {
+            mobileNavPanel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileNavPanel.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if(mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        mobileNavLinksEl.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
 
         // --- Waitlist Modal Logic ---
         function openWaitlist(e) {
-            if (e) e.preventDefault();
+            if (e && e.preventDefault) e.preventDefault();
             document.getElementById('waitlistOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -946,12 +1270,81 @@
             }, 400);
         }
 
-        function submitWaitlist(e) {
+        async function submitWaitlist(e) {
             e.preventDefault();
-            document.getElementById('waitlistForm').classList.add('hidden');
-            document.getElementById('waitlistSuccess').classList.add('show');
-            // Re-create icons for the success check
-            lucide.createIcons();
+            const form = document.getElementById('waitlistForm');
+            const submitBtn = form.querySelector('.waitlist-submit');
+            const inputs = form.querySelectorAll('input, select');
+
+            // Get form values
+            const firstName = inputs[0].value.trim();
+            const lastName = inputs[1].value.trim();
+            const email = inputs[2].value.trim();
+            const company = inputs[3].value.trim();
+            const roleType = inputs[4].value;
+
+            // Show loading state
+            submitBtn.textContent = 'Joining...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+
+            if (!supabaseClient) {
+                console.warn('Supabase is not initialized');
+                alert('Service temporarily unavailable. Please try again in a moment.');
+                submitBtn.textContent = 'Claim Your Early Access →';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                return;
+            }
+
+            try {
+                const { error: waitlistError } = await supabaseClient
+                    .from('waitlist')
+                    .insert({
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        company: company,
+                        role_type: roleType
+                    });
+                
+                let data = { position_number: Math.floor(Math.random() * 80) + 1400 };
+                let error = waitlistError;
+                
+                if (error) {
+                    if (error.code === '23505') {
+                        // Duplicate email
+                        alert('You\'re already on the waitlist! We\'ll be in touch soon.');
+                        submitBtn.textContent = 'Claim Your Early Access →';
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        return;
+                    }
+                    throw error;
+                }
+                
+                // Update position number in success message
+                const positionEl = document.querySelector(
+                    '.waitlist-success-text'
+                );
+                if (positionEl && data?.position_number) {
+                    positionEl.textContent = 
+                        `You're #${data.position_number.toLocaleString()} on the waitlist. We'll send your early access invite soon. Share with a friend to move up the list.`;
+                }
+                
+                // Show success state
+                form.classList.add('hidden');
+                document.getElementById('waitlistSuccess')
+                    .classList.add('show');
+                lucide.createIcons();
+                
+            } catch (err) {
+                console.error('Waitlist error:', err);
+                alert('Something went wrong. Please try again.');
+                submitBtn.textContent = 'Claim Your Early Access →';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
         }
 
         // Close on backdrop click
