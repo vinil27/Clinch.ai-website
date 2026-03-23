@@ -395,9 +395,10 @@
 /* --- Bottom Block: Link Columns + Subscription --- */
 .footer-bottom {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1.5fr;
-    gap: 2rem;
+    grid-template-columns: auto auto 1fr;
+    gap: 2.5rem;
     margin-bottom: 2rem;
+    align-items: start;
 }
 
 .footer-col h4 {
@@ -442,10 +443,47 @@
 }
 
 .footer-waitlist-btn {
-display: inline-block;
-margin-top: 0.5rem;
-padding: 0.75rem 1.5rem;
-font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.75rem;
+    padding: 0.7rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: var(--font-body, "Inter", sans-serif);
+    border-radius: 100px;
+    /* Override .btn-primary dark background — use rust orange for visibility on dark footer */
+    background: var(--accent-rust-orange, #D35400) !important;
+    color: #ffffff !important;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 6px 20px rgba(211, 84, 0, 0.35);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.25s ease,
+                background 0.2s ease;
+    white-space: nowrap;
+}
+
+.footer-waitlist-btn:hover {
+    background: #b84600 !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(211, 84, 0, 0.45);
+    text-decoration: none;
+}
+
+.footer-waitlist-btn:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* Align the subscribe column content neatly */
+.footer-subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: end;
+    text-align: left;
 }
 
 /* --- Copyright --- */
@@ -523,7 +561,7 @@ font-size: 0.9rem;
     }
 
     .footer-subscribe {
-        grid-column: 1 / -1;
+        grid-column: 2 / 3;
     }
 }
 
