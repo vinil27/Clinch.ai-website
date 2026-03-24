@@ -1155,6 +1155,9 @@
                     <input type="text" placeholder="Company name">
                 </div>
                 <div class="waitlist-field">
+                    <input type="tel" placeholder="Contact number" pattern="[0-9+ \-\(\)]+" title="Please enter a valid phone number" required>
+                </div>
+                <div class="waitlist-field">
                     <select>
                         <option value="" disabled selected>What describes you best?</option>
                         <option value="brand">D2C Brand</option>
@@ -1275,7 +1278,8 @@
             const lastName = inputs[1].value.trim();
             const email = inputs[2].value.trim();
             const company = inputs[3].value.trim();
-            const roleType = inputs[4].value;
+            const contactNumber = inputs[4].value.trim();
+            const roleType = inputs[5].value;
 
             // Show loading state
             submitBtn.textContent = 'Joining...';
@@ -1299,6 +1303,7 @@
                         last_name: lastName,
                         email: email,
                         company: company,
+                        contact_number: contactNumber,
                         role_type: roleType
                     });
                 
