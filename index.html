@@ -1296,14 +1296,14 @@
             }
 
             try {
+                const companyOrPhone = company ? `${company} (Phone: ${contactNumber})` : `Phone: ${contactNumber}`;
                 const { error: waitlistError } = await supabaseClient
                     .from('waitlist')
                     .insert({
                         first_name: firstName,
                         last_name: lastName,
                         email: email,
-                        company: company,
-                        contact_number: contactNumber,
+                        company: companyOrPhone,
                         role_type: roleType
                     });
                 
