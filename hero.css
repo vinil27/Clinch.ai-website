@@ -151,13 +151,17 @@
 }
 
 .hero-title {
-    font-size: 3rem;
-    /* Reduced from 4rem */
-    line-height: 1.1;
+    font-size: clamp(0.7rem, 4.2vw, 3.25rem); /* Allows scaling down to fit mobile screens */
+    line-height: 1.2;
     margin-bottom: 1rem;
-    /* Reduced from 1.5rem */
     color: var(--text-deep-espresso);
     font-family: var(--font-heading, "Merriweather", serif);
+    width: 100%;
+}
+
+.hero-title .line-one, .hero-title .line-two {
+    display: block;
+    white-space: nowrap; /* Force the text to stay on max two lines */
 }
 
 .highlight-blue {
@@ -650,13 +654,7 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-br {
-        display: none;
-    }
+    /* Fluid typography handles the title resizing naturally now */
 
     .creator-cards-scroll {
         padding-bottom: 2rem;
