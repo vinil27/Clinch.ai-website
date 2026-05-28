@@ -224,17 +224,6 @@
                 </h1>
                 <p class="hero-subtitle">Stop scrolling Instagram for creators, chasing DMs, and tracking payouts in spreadsheets. Let AI handle your entire influencer workflow.</p>
 
-                <div class="hero-social-proof">
-                    <span class="hero-proof-dot"></span>
-                    <span class="hero-proof-text">
-                        1,400+ brands on the waitlist
-                    </span>
-                    <span class="hero-proof-divider">•</span>
-                    <span class="hero-proof-text">
-                        Launching Q2 2026
-                    </span>
-                </div>
-
                 <!-- Chat Stream Interface -->
                 <div class="chat-stream-container">
                     <!-- AI Message (Creator Profiles) -->
@@ -1055,13 +1044,8 @@
                     <img src="images/Logofooter.png" alt="Clinch.ai" class="footer-logo-img">
                 </div>
                 <div class="footer-social">
-
-                    <a href="#" aria-label="X (Twitter)" style="font-weight:700;font-size:14px;">𝕏</a>
-                    <a href="#" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/clinch-ai1/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                     </a>
                 </div>
             </div>
@@ -1118,28 +1102,6 @@
 
             <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
                 <h2 class="waitlist-title">Get Early Access</h2>
-                <p class="waitlist-sub">Join 1,400+ brands already on the
-                waitlist. Early access members get 3 months
-                free on launch.</p>
-                <div class="waitlist-social-proof">
-                    <div class="waitlist-avatars">
-                        <div class="waitlist-avatar" 
-                             style="background: linear-gradient(135deg, #C4622D, #D35400);">
-                             M</div>
-                        <div class="waitlist-avatar" 
-                             style="background: linear-gradient(135deg, #556B2F, #6b8e3a);">
-                             R</div>
-                        <div class="waitlist-avatar" 
-                             style="background: linear-gradient(135deg, #3E2723, #5D4037);">
-                             A</div>
-                        <div class="waitlist-avatar" 
-                             style="background: linear-gradient(135deg, #D35400, #e67e22);">
-                             S</div>
-                    </div>
-                    <span class="waitlist-proof-text">
-                        Meera, Rohan, and 1,398 others are waiting
-                    </span>
-                </div>
                 <div class="waitlist-row">
                     <div class="waitlist-field">
                         <input type="text" placeholder="First name" required>
@@ -1154,8 +1116,16 @@
                 <div class="waitlist-field">
                     <input type="text" placeholder="Company name">
                 </div>
-                <div class="waitlist-field">
-                    <input type="tel" placeholder="Contact number" pattern="[0-9+ \-\(\)]+" title="Please enter a valid phone number" required>
+                <div class="waitlist-field waitlist-phone-group">
+                    <select aria-label="Country code" required>
+                        <option value="+91" selected>+91</option>
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                        <option value="+61">+61</option>
+                        <option value="+65">+65</option>
+                        <option value="+971">+971</option>
+                    </select>
+                    <input type="tel" placeholder="Contact number" pattern="[0-9\-\s\(\)]+" title="Please enter a valid phone number" required>
                 </div>
                 <div class="waitlist-field">
                     <select>
@@ -1182,18 +1152,6 @@
                     your early access invite soon. Share with 
                     a friend to move up the list.
                 </p>
-                <div class="waitlist-share-buttons">
-                    <a href="https://twitter.com/intent/tweet?text=Just%20joined%20the%20%40ClinchAI%20waitlist%20%E2%80%94%20AI-powered%20influencer%20marketing%20is%20coming!%20%F0%9F%9A%80%20https%3A%2F%2Fclinch.ai" 
-                       target="_blank" 
-                       class="waitlist-share-btn">
-                        Share on 𝕏
-                    </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://clinch.ai" 
-                       target="_blank" 
-                       class="waitlist-share-btn">
-                        Share on LinkedIn
-                    </a>
-                </div>
             </div>
 
             <p class="waitlist-micro">No spam, ever. Unsubscribe anytime.</p>
@@ -1278,8 +1236,9 @@
             const lastName = inputs[1].value.trim();
             const email = inputs[2].value.trim();
             const company = inputs[3].value.trim();
-            const contactNumber = inputs[4].value.trim();
-            const roleType = inputs[5].value;
+            const countryCode = inputs[4].value.trim();
+            const contactNumber = inputs[5].value.trim();
+            const roleType = inputs[6].value;
 
             // Show loading state
             submitBtn.textContent = 'Joining...';
@@ -1296,7 +1255,8 @@
             }
 
             try {
-                const companyOrPhone = company ? `${company} (Phone: ${contactNumber})` : `Phone: ${contactNumber}`;
+                const fullPhone = `${countryCode} ${contactNumber}`.trim();
+                const companyOrPhone = company ? `${company} (Phone: ${fullPhone})` : `Phone: ${fullPhone}`;
                 const { error: waitlistError } = await supabaseClient
                     .from('waitlist')
                     .insert({

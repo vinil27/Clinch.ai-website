@@ -178,6 +178,12 @@
     gap: 0.85rem;
 }
 
+.waitlist-phone-group {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0.75rem;
+}
+
 /* --- Submit Button --- */
 .waitlist-submit {
     width: 100%;
