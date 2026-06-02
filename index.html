@@ -1287,10 +1287,10 @@
                 calendlyUrl.searchParams.set('name', `${firstName} ${lastName}`.trim());
                 calendlyUrl.searchParams.set('email', email);
 
-                // Redirect after a short delay so user sees the confirmation
+                // Redirect after a brief flash so user sees the confirmation
                 setTimeout(() => {
-                    window.open(calendlyUrl.toString(), '_blank');
-                }, 1500);
+                    window.location.href = calendlyUrl.toString();
+                }, 600);
                 
             } catch (err) {
                 console.error('Submission error:', err);
