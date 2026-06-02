@@ -7,7 +7,7 @@
     <title>Clinch.ai — AI-Powered Influencer Marketing Platform</title>
     <meta name="description" content="Hire an AI to find, negotiate, and manage your influencer campaigns. The all-in-one platform for brands and agencies.">
     <meta property="og:title" content="Clinch.ai — AI-Powered Influencer Marketing">
-    <meta property="og:description" content="Hire an AI to find, negotiate, and manage your influencer campaigns. Join 1,400+ brands on the waitlist.">
+    <meta property="og:description" content="Hire an AI to find, negotiate, and manage your influencer campaigns. Schedule a demo today.">
     <meta property="og:image" content="images/og-preview.png">
     <meta property="og:url" content="https://clinch.ai">
     <meta property="og:type" content="website">
@@ -190,7 +190,7 @@
             <a href="#testimonials">Why Clinch</a>
         </nav>
         <div class="header-actions">
-            <a href="#" class="btn btn-primary" onclick="openWaitlist(event)">Join Waitlist</a>
+            <a href="#" class="btn btn-primary" onclick="openWaitlist(event)">Schedule Demo</a>
         </div>
         <button class="menu-toggle" aria-label="Toggle menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -209,7 +209,7 @@
             <a href="#how-it-works">Features</a>
             <a href="#trust-safety">Safety</a>
             <a href="#testimonials">Why Clinch</a>
-            <a href="#" class="btn btn-primary mobile-waitlist-btn" onclick="openWaitlist(event)">Join Waitlist</a>
+            <a href="#" class="btn btn-primary mobile-waitlist-btn" onclick="openWaitlist(event)">Schedule Demo</a>
         </div>
     </div>
 
@@ -323,7 +323,7 @@
         <!-- Social Proof Section -->
         <section class="social-proof">
             <div class="social-proof-banner">
-                <h3 class="social-proof-headline">Join, forward-thinking brands and agencies on the waitlist.
+                <h3 class="social-proof-headline">Join forward-thinking brands and agencies already using Clinch.
                 </h3>
 
                 <div class="marquee-track">
@@ -1022,7 +1022,7 @@
                     </div>
                     <a href="#" class="stat-cta" 
                        onclick="openWaitlist(event)">
-                        Get Early Access →
+                        Schedule a Demo →
                     </a>
                 </div>
             </div>
@@ -1076,11 +1076,11 @@
 
             <!-- Subscription -->
             <div class="footer-subscribe">
-                <h4>Get Early Access</h4>
-                <p>Be the first to know when we launch.</p>
+                <h4>See It In Action</h4>
+                <p>Book a personalized demo with our team.</p>
                 <a href="#" class="btn btn-primary footer-waitlist-btn" 
                    onclick="openWaitlist(event)">
-                    Join Waitlist →
+                    Schedule Demo →
                 </a>
             </div>
 
@@ -1101,7 +1101,7 @@
             </div>
 
             <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
-                <h2 class="waitlist-title">Get Early Access</h2>
+                <h2 class="waitlist-title">Schedule a Demo</h2>
                 <div class="waitlist-row">
                     <div class="waitlist-field">
                         <input type="text" placeholder="First name" required>
@@ -1137,7 +1137,7 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <button type="submit" class="waitlist-submit">Claim Your Early Access →</button>
+                <button type="submit" class="waitlist-submit">Schedule Demo →</button>
             </form>
 
             <div class="waitlist-success" id="waitlistSuccess">
@@ -1145,16 +1145,16 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <h3 class="waitlist-success-title">
-                    You're in! 🎉
+                    Redirecting to Calendly... 🎉
                 </h3>
                 <p class="waitlist-success-text">
-                    You're #1,401 on the waitlist. We'll send 
-                    your early access invite soon. Share with 
-                    a friend to move up the list.
+                    Taking you to our scheduling page to book 
+                    your personalized demo. If you're not 
+                    redirected, <a href="https://calendly.com/vinilverma276/clinch" target="_blank" style="color: #D35400; text-decoration: underline;">click here</a>.
                 </p>
             </div>
 
-            <p class="waitlist-micro">No spam, ever. Unsubscribe anytime.</p>
+            <p class="waitlist-micro">Your details are safe with us. We'll only use them for scheduling.</p>
         </div>
     </div>
 
@@ -1241,14 +1241,14 @@
             const roleType = inputs[6].value;
 
             // Show loading state
-            submitBtn.textContent = 'Joining...';
+            submitBtn.textContent = 'Scheduling...';
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
 
             if (!supabaseClient) {
                 console.warn('Supabase is not initialized');
                 alert('Service temporarily unavailable. Please try again in a moment.');
-                submitBtn.textContent = 'Claim Your Early Access →';
+                submitBtn.textContent = 'Schedule Demo →';
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 return;
@@ -1267,40 +1267,35 @@
                         role_type: roleType
                     });
                 
-                let data = { position_number: Math.floor(Math.random() * 80) + 1400 };
                 let error = waitlistError;
                 
                 if (error) {
                     if (error.code === '23505') {
-                        // Duplicate email
-                        alert('You\'re already on the waitlist! We\'ll be in touch soon.');
-                        submitBtn.textContent = 'Claim Your Early Access →';
-                        submitBtn.disabled = false;
-                        submitBtn.style.opacity = '1';
-                        return;
+                        // Duplicate email — still redirect to Calendly
+                    } else {
+                        throw error;
                     }
-                    throw error;
                 }
                 
-                // Update position number in success message
-                const positionEl = document.querySelector(
-                    '.waitlist-success-text'
-                );
-                if (positionEl && data?.position_number) {
-                    positionEl.textContent = 
-                        `You're #${data.position_number.toLocaleString()} on the waitlist. We'll send your early access invite soon. Share with a friend to move up the list.`;
-                }
-                
-                // Show success state
+                // Show success state briefly then redirect to Calendly
                 form.classList.add('hidden');
-                document.getElementById('waitlistSuccess')
-                    .classList.add('show');
+                document.getElementById('waitlistSuccess').classList.add('show');
                 lucide.createIcons();
+
+                // Build Calendly URL with pre-filled info
+                const calendlyUrl = new URL('https://calendly.com/vinilverma276/clinch');
+                calendlyUrl.searchParams.set('name', `${firstName} ${lastName}`.trim());
+                calendlyUrl.searchParams.set('email', email);
+
+                // Redirect after a short delay so user sees the confirmation
+                setTimeout(() => {
+                    window.open(calendlyUrl.toString(), '_blank');
+                }, 1500);
                 
             } catch (err) {
-                console.error('Waitlist error:', err);
+                console.error('Submission error:', err);
                 alert('Something went wrong. Please try again.');
-                submitBtn.textContent = 'Claim Your Early Access →';
+                submitBtn.textContent = 'Schedule Demo →';
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
             }
